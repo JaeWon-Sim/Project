@@ -1,0 +1,63 @@
+package movie.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import movie.DTO.MovieDTO;
+import movie.service.MovieService;
+
+@WebServlet("/movielist")
+public class MovieController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("movielist 실행");
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		
+		try {
+			MovieDTO dto = new MovieDTO();
+			//서비스에서 리스트 가져오기
+			MovieService movieService = new MovieService();
+			List<MovieDTO> list = movieService.getlist(dto);
+			//결과 출력
+			PrintWriter po = response.getWriter();
+			po.println("<table header>");
+			po.println("<table border=1>");
+			po.println("	<tr>");
+			po.println("	<th>영화고유id</th>");
+			po.println("	<th>영화이름</th>");
+			po.println("	<th>포스터</th>");
+			po.println("	<th>개봉일</th>");
+			po.println("	</tr>");
+			
+			for(MovieDTO dto2 : list) {
+				po.println("	<tr>");
+				po.println("		<td>"+dto2.getMid()+"</td>");
+				po.println("		<td>"+dto2.getMname()+"</td>");
+				po.println("		<td>"+dto2.getPoster()+"</td>");
+				po.println("		<td>"+dto2.getMdate()+"</td>");
+				po.println("	</tr>");
+			}
+			po.println("</table>");
+			
+			po.println("<a href='movie.html'><button>추가</button></a>");
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+}

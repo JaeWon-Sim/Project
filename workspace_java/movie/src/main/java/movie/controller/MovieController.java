@@ -53,7 +53,7 @@ public class MovieController extends HttpServlet {
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		System.out.println("asv");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
