@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent{
+            border : 1px solid black;
+            background-color: green;
+            padding : 10px;
+        }
+        #child1{
+            background-color: blueviolet;
+        }
+        #child2{
+            background-color: rgb(145, 129, 160);
+        }
+    </style>
+</head>
+<body>
+    <div id="parent" style="border:1px ">
+        부모
+        <div id="child1">자식 1</div>
+        <div id="child2">자식 2</div>
+    </div>
+    <script>
+        //콜백을 화살표함수로 하면 this는 여전히 window다!
+        document.querySelector('#parent').addEventListener('click', function(event){
+            console.log('부모');
+
+            //event.target : 이벤트가 발생한 DOM을 알려줌!
+            console.log('event.target : ',event.target);
+
+            // event.currentTarget : 이벤트가 적용된 DOM
+            console.log('event.currentTarget : ',event.currentTarget);
+            console.log(this);
+            console.log(this === event.currentTarget);
+
+            //DOM.parentNode : 부모로 이동
+            console.log('event.target.parentNode : ',event.target.parentNode);
+
+        })
+        // document.querySelector('#child1').addEventListener('click', function(event){
+        //     // event.prevenDefault()
+            
+        //     // 전파방지
+        //     // 부모로 전달되는 이밴트 중지!
+        //     // event.stopPropagation();
+        //     console.log('자식1');
+        //     //js에서 this는 뭔지 알고 있을 때만 사용하세요;
+        //     console.log('안쪽 : ',this)
+        // })
+
+        // window 객체를 가지고 있다!
+        //console.log('밖 : ', this);              //출력결과 : window
+       // console.log(this === window);   //출력결과 : true
+
+    </script>
+</body>
+</html>

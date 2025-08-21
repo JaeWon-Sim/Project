@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fn1(){
+            console.log('fn1실행');
+            fn2();
+            console.log('fn2 호출 끝');
+        }
+        fn1();
+
+        function fn2(){
+            console.log('fn2실행');
+            fn3();
+            fn3();
+          
+            console.log('에베베');
+            setTimeout(function(){
+                console.log('에베베2')
+            },0);
+            setTimeout(function(){
+                console.log('에베베3')
+            },0);
+
+            fn3();
+            fn3();
+        }
+
+        function fn3(){
+            console.log('fn3실행')
+        }
+        
+
+               
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

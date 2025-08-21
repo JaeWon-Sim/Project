@@ -1,0 +1,142 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      padding: 20px;
+    }
+    .SCbtn {
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 12px;
+      font-weight: 600;
+      background: #f6bc4d;
+      color: #fff;
+    }
+    .SCbtn:hover {
+      background: #e5ac3a;
+    }
+
+    input[type="text"], textarea, select {
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    /* 섹션 공통 */
+    .SCsection {
+      background: #fff;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    .SCsection-header {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .SCsection-header .icon {
+      font-size: 1.2rem;
+    }
+
+    .SCid-filter {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .SCid-filter label {
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .SCid-filter input[type="text"] {
+      flex: 1;
+      padding: 6px 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .SCid-filter input[type="radio"] {
+      margin-left: 12px;
+    }
+    .SCsection textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    .SCbanner-list {
+      display: flex;
+      gap: 16px;
+    }
+    .SCbanner-item {
+      flex: 1;
+      text-align: center;
+    }
+    .SCbanner-placeholder {
+      width: 100%;
+      padding-top: 100%;
+      background: #f0f0f0;
+      border: 1px dashed #ccc;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+    .SCbanner-label {
+      position: absolute;
+      top: 8px; left: 8px;
+      font-weight: 600;
+      background: rgba(255,255,255,0.8);
+      padding: 2px 6px;
+      border-radius: 4px;
+      z-index: 1;
+    }
+    .SCbanner-preview {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+    .SCbanner-preview img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .SCbanner-controls {
+      margin-top: 8px;
+      display: flex;
+      gap: 8px;
+    }
+    .SCbanner-controls input[type="file"] {
+      flex: 1;
+    }
+
+    .SCchatbot-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .SCchatbot-controls label {
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .SCchatbot-controls select {
+      flex-shrink: 0;
+      padding: 6px 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .SCchatbot-section textarea {
+      width: 100%;
+      min-height: 150px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }

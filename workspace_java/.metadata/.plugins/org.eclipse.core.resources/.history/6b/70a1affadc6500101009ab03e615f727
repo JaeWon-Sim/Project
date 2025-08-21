@@ -1,0 +1,14 @@
+package quiz.cafe.teacer;
+
+public class CafeExam {
+
+	public static void main(String[] args) {
+
+		Compose c = new Compose();
+		
+		Alba a = new Alba(c);
+		a.work("¾Æ¾Æ", 3);
+		a.pay(400000);
+	}
+
+}

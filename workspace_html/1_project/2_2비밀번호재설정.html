@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>비밀번호 재설정</title>
+  <link rel="stylesheet" href="2_2비밀번호재설정.css">
+</head>
+<body class="Reset">
+  <div class="Resetcontainer">
+    <h1 class="Resetheader">비밀번호 재설정</h1>
+
+    <div class="Resetinput-box" id="reset1">
+      <input type="password" placeholder="새 비밀번호를 입력해 주세요">
+    </div>
+
+    <div class="Resetinput-box" id="reset2">
+      <input type="password" placeholder="비밀번호를 다시 입력해 주세요">
+    </div>
+
+    <button class="Resetbtn Resetbtn-primary">비밀번호 변경</button>
+    <button class="Resetbtn Resetbtn-secondary">로그인으로 돌아가기</button>
+
+    <div class="Resetlinks">
+      <a href="">비밀번호 찾기</a>
+      <a href="">회원가입</a>
+    </div>
+  </div>
+  <script>
+    const pw1 = document.querySelector('#reset1 input');
+    const pw2 = document.querySelector('#reset2 input');
+    const btn = document.querySelector('.Resetbtn-primary');
+
+    btn.addEventListener('click',function(){
+        if(pw1.value !== pw2.value){
+                alert("입력하신 비밀번호가 다릅니다. 다시 입력해주세요.");
+            }else{
+                alert("비밀번호가 성공적으로 변경되었습니다!");
+                location.href = "";
+            }
+    })
+
+    
+    
+  </script>
+</body>
+</html>

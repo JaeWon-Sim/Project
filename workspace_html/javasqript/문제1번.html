@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>참가신청서</title>
+</head>
+<body>
+    
+    <!-- 0단계
+    신청 버튼 누르면 input의 글씨가 아래에 쌓인다 -->
+    <div>
+        <input id="human">
+        <input type="button" id="button" value="신청"><br>
+        <span>신청자 목록</span>
+    </div>
+    
+    
+    <script>
+        const human = document.querySelector('#human');
+        const span = document.querySelector('span')
+        document.querySelector('#button').addEventListener('click', function(){
+            if(human.value == ''){
+                alert('이름을 입력하세요!')
+            }else{
+                span.innerHTML += '<br>'+human.value;
+            }
+        }
+    )
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>

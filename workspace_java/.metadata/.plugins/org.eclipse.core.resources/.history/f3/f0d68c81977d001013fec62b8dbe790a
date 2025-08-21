@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>emp2 신입 노예</h1>
+<form method='post' action='add'>
+	<table border=1>
+		<tr>
+			<td>empno</td>
+			<td><input type="text" name="empno"></td>
+		</tr>
+	</table>	
+</form>
+</body>
+</html>

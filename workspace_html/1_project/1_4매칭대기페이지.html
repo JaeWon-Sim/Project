@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>매칭</title>
+  <link rel="stylesheet" href="1_4매칭대기페이지.css">
+</head>
+<body class="mhbody">
+  <h1 class="mhHeader">당신의 도움이 필요합니다.</h1>
+
+  <!-- 상단 검색 -->
+  <div class="mhtop-bar">
+    <div style="position:relative;">
+      <button class="mhbtn active" id="mhlocationBtn">두정동</button>
+      <div class="mhdropdown" id="mhdropdownMenu">
+        <p>두정동</p>
+        <p>불당동</p>
+        <p>대흥동</p>
+        <p>문화동</p>
+        <p>문성동</p>
+      </div>
+    </div>
+    <button class="mhbtn">등록 시간순</button>
+    <input type="text" class="mhsearch-box" placeholder="원하시는 주소를 입력해 주세요.">
+    <button class="mhbtn">검색</button>
+  </div>
+
+  <div class="mhcontainer">
+    <div class="mhrequest-list">
+      <div class="mhcard">
+        <div class="mhprofile"><img src="person.jpg" alt=""></div>
+        <div class="mhinfo">
+          <p><strong>이름:</strong> 김오영</p>
+          <p><strong>나이:</strong> 87세</p>
+          <p><strong>요청사항:</strong> <span class="mhrequest-text">병원가기</span></p>
+          <div class="mhtag-box">
+            <p class="mhtag">두정동</p>
+            <p class="mhtag">낚시</p>
+          </div>
+        </div>
+        <div class="mhtime-box">오후 5시 31분</div>
+        <button class="mhaccept-btn">수락</button>
+      </div>
+
+      <div class="mhcard">
+        <div class="mhprofile"><img src="person.jpg" alt=""></div>
+        <div class="mhinfo">
+          <p><strong>이름 : </strong> 김둥현</p>
+          <p><strong>나이:</strong> 106세</p>
+          <p><strong>요청사항:</strong> <span class="mhrequest-text">산책하기</span></p>
+          <div class="mhtag-box">
+            <p class="mhtag">두정동</p>
+            <p class="mhtag">세븐나이츠</p>
+          </div>
+        </div>
+        <div class="mhtime-box">오후 6시 6분</div>
+        <button class="mhaccept-btn">수락</button>
+      </div>
+
+      <!-- 카드 3 -->
+      <div class="mhcard">
+        <div class="mhprofile"><img src="person.jpg" alt=""></div>
+        <div class="mhinfo">
+          <p><strong>이름 : </strong> 하옹근</p>
+          <p><strong>나이 : </strong> 99세</p>
+          <p><strong>요청사항:</strong> <span class="mhrequest-text">다리털밀기</span></p>
+          <p>관심사항 : 낚시</p>
+          <div class="mhtag-box">
+            <p class="mhtag">두정동</p>
+          </div>
+        </div>
+        <div class="mhtime-box">오후 7시 2분</div>
+        <button class="mhaccept-btn">수락</button>
+      </div>
+    </div>
+
+    
+    
+
+    <div class="mhsidebar">
+      <a href=""><div class="mhad-box">협력업체 광고</div></a>
+      <h3>요청 완료</h3>
+      <div class="mhdone-box">
+        <div class="mhdone-request">5/1 심재환 겨드랑이털 밀기</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const locationBtn = document.querySelector('#mhlocationBtn');
+    const dropdownMenu = document.querySelector('#mhdropdownMenu');
+  
+    locationBtn.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('show');
+    });
+
+    dropdownMenu.querySelectorAll('p').forEach(item => {
+      item.addEventListener('click', () => {
+        locationBtn.textContent = item.textContent;
+        dropdownMenu.classList.remove('show');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!locationBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>

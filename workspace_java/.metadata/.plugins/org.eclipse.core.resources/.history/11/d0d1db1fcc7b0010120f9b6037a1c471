@@ -1,0 +1,30 @@
+package sec01.exam01;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class OracleJDBCExam {
+
+	public static void main(String[] args) {
+
+		String url = "jdbc:oracle:thin:@125.181.132.133:51521:xe";
+		String user = "scott4_15";
+		String password = "tiger";
+		String driver = "oracle.jdbc.driver.OracleDriver";
+		
+		Connection conn = null;
+		try {
+			
+			// Oracle 드라이버 로딩
+			//Class.forname : String을 이용해서 클래스 생성
+			Class.forName(driver);
+			
+			conn = DriverManager.getConnection(url, user, password);
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

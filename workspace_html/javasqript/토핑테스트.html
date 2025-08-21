@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    
+    <input type="checkbox" id="selectAll">전체선택
+    <input type="checkbox" class="toping" value="cheese">치즈추가
+    <input type="checkbox" class="toping" value="add beef">소고기추가
+    <input type="checkbox" class="toping" value="tomato">토마토소스
+    <input type="checkbox" class="toping" value="peecle">피클추가
+    <input type="checkbox" class="toping" value="cola">콜라
+    <button id="button">선택</button>
+    <span id="choice"></span>
+
+    <script>
+        
+        let all = document.querySelector('#selectAll');
+        let chk = document.querySelectorAll('.toping');//Array
+        const button = document.querySelector('button');
+        let list_chk = document.querySelectorAll('.chk:checked');
+        let topping = document.querySelector('#topping');
+
+
+        button.addEventListener('click',function(){
+            for(let i = 0; i<chk.length; i++){
+                if(chk[i].checked === true){
+                console.log(chk[i].value);
+                }
+            }
+        })
+        
+    </script>
+    
+</body>
+</html>

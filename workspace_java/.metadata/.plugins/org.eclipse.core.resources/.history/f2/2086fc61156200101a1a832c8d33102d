@@ -1,0 +1,13 @@
+package sec01.exam01;
+
+public class ExtendsExam {
+
+	public static void main(String[] args) {
+	
+		//Child를 생성해서 print를 실행
+		Child c = new Child();
+		c.printName();
+	
+	}
+
+}

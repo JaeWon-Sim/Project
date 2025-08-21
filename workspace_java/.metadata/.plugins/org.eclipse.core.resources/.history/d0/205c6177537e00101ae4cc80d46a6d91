@@ -1,0 +1,32 @@
+<!-- html 주석 -->
+<%-- jsp 주석 --%>
+
+<!-- 디렉티브 테그 -->
+<%--
+	"<%@"로 시작하는 태그
+	1. page
+	2. include
+ --%>
+<%@ 
+	page 
+	language="java"
+	contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+    
+    import="java.util.List"
+    import="java.util.Map"
+    %>
+    <%-- import 찾는법 --%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%@ include file="header.jsp" %>
+	<h1>jsp.jsp</h1>
+</body>
+</html>

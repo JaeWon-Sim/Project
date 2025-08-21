@@ -1,0 +1,23 @@
+package emp.dao;
+
+import java.sql.Connection;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+public class EmpDAO {
+
+	//db 접속 메소드 
+	private Connection getConn() {
+		Connection conn = null;
+		try {
+			Context ctx = new InitialContext();
+			DataSource dataFactory = (DataSource) ctx.lookup("java:/comp/env/jdbc/oracle");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
+	
+}

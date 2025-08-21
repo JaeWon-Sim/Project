@@ -1,0 +1,13 @@
+package quiz.cafe;
+
+public class Compose extends Cafe{
+
+	Compose (){
+		Cafe c = new Cafe();
+		c.cafe="compose";
+		c.menu="아이스아메리카노";
+		c.price=3000;
+	}
+	
+	
+}

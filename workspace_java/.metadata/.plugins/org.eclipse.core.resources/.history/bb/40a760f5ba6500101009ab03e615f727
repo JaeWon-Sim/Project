@@ -1,0 +1,22 @@
+package quiz.cafe;
+
+public class Compose extends Cafe{
+
+	Compose (){
+		Cafe c = new Cafe();
+		c.cafe="compose";
+		c.menu="아이스아메리카노";
+		c.price=3000;
+		set();
+	}
+	
+	@Override
+	void set () {
+		this.cafe = "compose";
+		this.menu = "아이스아메리카노";
+		this.price = 3000;
+		System.out.println("어서오세요~"+this.cafe+"입니다");
+	}
+	
+	
+}

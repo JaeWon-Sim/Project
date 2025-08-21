@@ -1,0 +1,22 @@
+package quiz.class1;
+
+public class JaewonService {
+	
+	JaewonDAO jaewonDAO = new JaewonDAO();
+
+	// 머리속
+	String getInfo(String question) {
+		String result = jaewonDAO.selectAnswer(question);
+		if(result == null) {
+			result = "...(생각중)";
+		}
+		else {
+			result = "흐음... 저는요"+result;
+		}
+		return result;
+		
+	}
+	// gpt
+	// 노션
+	
+}

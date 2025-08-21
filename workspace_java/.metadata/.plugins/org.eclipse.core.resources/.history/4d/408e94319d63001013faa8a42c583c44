@@ -1,0 +1,26 @@
+package sec02.exam01.driver;
+
+import java.util.ArrayList;
+
+public class DriverExam {
+	public static void main(String[] args) {
+		Tico tico = new Tico();
+		
+		Driver driver = new Driver();
+		
+		driver.driveTico(tico);
+		
+		Porsche911gts p = new Porsche911gts();
+		Car c = (Car) p;
+		driver.drive(c);
+		driver.drive(tico);
+		
+		ArrayList list = new ArrayList();
+		list.add(driver);
+		Driver d = (Driver)list.get(0);
+		
+		
+		
+	}
+
+}

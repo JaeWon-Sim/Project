@@ -1,0 +1,45 @@
+package movie.DTO;
+
+import java.sql.Date;
+
+public class MovieDTO {
+	
+	
+
+	private int mid;
+	private String mname;
+	private String poster;
+	private Date mdate;
+	
+	
+	public int getMid() {
+		return mid;
+	}
+	public void setMid(int mid) {
+		this.mid = mid;
+	}
+	public String getMname() {
+		return mname;
+	}
+	public void setMname(String mname) {
+		this.mname = mname;
+	}
+	public String getPoster() {
+		return poster;
+	}
+	public void setPoster(String poster) {
+		this.poster = poster;
+	}
+	public Date getMdate() {
+		return mdate;
+	}
+	public void setMdate(Date mdate) {
+		this.mdate = mdate;
+	}
+	@Override
+	public String toString() {
+		return "MovieDTO [mid=" + mid + ", mname=" + mname + ", poster=" + poster + ", mdate=" + mdate + "]";
+	}
+		
+	
+}

@@ -1,0 +1,10 @@
+package quiz.cafe.teacer;
+
+public class Compose extends Cafe{
+	
+	Compose(){
+		super("Àç¿øºôµù", "compose");
+		
+	}
+
+}

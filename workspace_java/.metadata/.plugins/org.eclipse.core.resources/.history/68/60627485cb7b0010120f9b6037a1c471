@@ -1,0 +1,26 @@
+package sec01.exam01;
+
+import java.sql.Connection;
+
+public class OracleJDBCExam {
+
+	public static void main(String[] args) {
+
+		String url = "jdbc:oracle:thin:@125.181.132.133:51521:xe";
+		String user = "scott4_15";
+		String password = "tiger";
+		String driver = "oracle.jdbc.driver.OracleDriver";
+		
+		Connection conn = null;
+		try {
+			// JDBC 드라이버 로드
+			Class.forName(driver);
+			
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

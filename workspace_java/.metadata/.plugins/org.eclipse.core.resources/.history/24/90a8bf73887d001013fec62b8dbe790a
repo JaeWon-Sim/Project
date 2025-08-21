@@ -1,0 +1,99 @@
+package emp.dao;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+import emp.dto.EmpDTO;
+
+public class EmpDAO {
+
+	//db 접속 메소드 
+	private Connection getConn() {
+		Connection conn = null;
+		try {
+			// JNDI : 글씨로 뭔가를 가져오는 방식
+			// context.xml에 있는 DB 정보를 가져온다
+			Context ctx = new InitialContext();
+			// DataSource : 커넥션 풀 관리자
+			DataSource dataFactory = (DataSource) ctx.lookup("java:/comp/env/jdbc/oracle");
+		
+			// DB 접속
+				 conn = dataFactory.getConnection();
+				 
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
+	
+	public List selectAllEmp() {
+		List<EmpDTO> list = new ArrayList<EmpDTO>();
+		try {
+			//DB 접속
+			Connection conn = getConn();
+			//SQL준비
+			String query = "select * from emp2";
+			PreparedStatement ps = conn.prepareStatement(query);
+			//SQL 실행
+			ResultSet rs = ps.executeQuery();
+			//결과 활용
+			while(rs.next()) {
+				EmpDTO dto = new EmpDTO();
+				int empno = rs.getInt("empno");
+				dto.setEmpno(empno);
+				
+				dto.setEname(rs.getString("ename"));
+				dto.setSal(rs.getInt("sal"));
+				
+				list.add(dto);
+			}
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	//한명만 조회
+	public EmpDTO selectOneEmp(EmpDTO empDTO) {
+		EmpDTO resultDTO = null;
+		try {
+			//DB 접속
+			Connection conn = getConn();
+			//SQL준비
+			String query = "select * from emp2";
+				   query += " where empno=?";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setInt(1, empDTO.getEmpno());
+			//SQL 실행
+			ResultSet rs = ps.executeQuery();
+			//결과 활용
+			while(rs.next()) {
+//				EmpDTO dto = new EmpDTO();
+				int empno = rs.getInt("empno");
+				resultDTO.setEmpno(empno);
+				resultDTO.setDeptno(rs.getInt("deptno"));
+				resultDTO.setJob(rs.getString("job"));
+				resultDTO.setEname(rs.getString("ename"));
+				resultDTO.setSal(rs.getInt("sal"));
+				
+				
+			}}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		
+		return resultDTO;
+	}
+	
+}

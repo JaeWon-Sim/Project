@@ -1,0 +1,19 @@
+package quiz.cafe;
+
+public class Compose extends Cafe{
+
+	
+	Compose(){
+		super("compose");
+		setMenu();
+	}
+	@Override
+	void setMenu() {
+		menu[0] = new Menu();
+		menu[0].coffee = "아이스아메리카노";
+		menu[0].price = 2500;
+	}
+	
+	
+	
+}

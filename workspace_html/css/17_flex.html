@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox Layout Example</title>
+  <style>
+    .flex-container{
+        border:1px solid green;
+        height:300px;
+        display:flex;
+        /* width:500px; */
+        /* display: inline-flex; */
+
+        /* main축 기본값: 왼쪽에서 오른쪽으로 */
+        /* flex-direction: row; */
+        
+        /* 오른쪽에서 왼쪽으로 */
+        /* flex-direction: row-reverse; */
+       
+        /* main축과 cross축을 바꿔서*/
+        /* flex-direction: column; */
+       
+        /* 아래에서부터 시작 */
+        /* flex-direction: column-reverse; */
+       
+        /* 기본값! 한줄에 모든 item을 표시해줌 */
+        /* flex-wrap: nowrap; */
+        
+        /* inline-block처럼 넘치는 경우 다음줄 */
+        /* flex-wrap: wrap; */
+       
+        /* 다음줄 일때 끝에서 부터 올라간다 */
+        /* flex-wrap: wrap-reverse; */
+        
+        /* 기본값 메인축의 스타트방향 */
+        /* justify-content: flex-start; */
+
+        /* 메인축의 끝부분부터 시작 */
+        /* justify-content: flex-end; */
+
+        /*메인축 가운데 정렬*/
+        /* justify-content: center; */
+
+        /* 공간을 균등하게 배분 */
+        /* justify-content: space-between; */
+
+        /* 남은 공간을 균등하게 분배 */
+        /* justify-content: space-around; */
+
+        /* 모든 공간이 균등하게 분배됨 */
+        /* justify-content: space-evenly; */
+
+        /* 한줄에서 크로스축에 대한 이야기 */
+        /* 기본값임; 부모 크기 만큼 크로스축 방향으로 쭉 늘려줌!! */
+        /* align-items: stretch; */
+
+        /* 크로스축의 스타트방향 */
+        /* align-items: flex-start; */
+        /* align-items: center; */
+        
+        
+        /* 여러줄에 대한 크로스축의 이야기 각 줄의 높이를 꽉 채운 상태 */
+        /* flex-wrap: wrap; */
+        /* align-content:stretch; */
+        /* align-content: flex-start; */
+        /* align-content: center; */
+        
+        
+
+
+
+        
+    }
+    .flex-container .flex-item{
+        border:1px solid black;
+        color:white;
+        background-color: blue;
+        /* width:50px;  */
+      width:200px;
+        
+    }
+    /* 남은 공간의 너비를 비율에 따라 분배해준다!!
+    flex-grow의 기본값은 0 */
+    /* .c{
+      flex-grow: 1;
+    }*/
+    /*.e{
+       flex-grow: 0; 
+    }*/
+    /* flex-shrink 줄어들 공간의 비율을 조절!!
+    기본값은 1 */
+    /*.a{
+      flex-shrink:0;
+    }*/
+    /* 등장하는 순서를 바꿔준다!! */
+    .b{
+      order:-1;
+    }
+    /* 하나만 위치 조정 가능!! */
+    .a{
+      align-self: start;
+    }
+    
+    
+  </style>
+</head>
+<body>
+  <div class="flex-container">
+    <div class="flex-item a">1</div>
+    <div class="flex-item b">2</div>
+    <div class="flex-item c">3</div>
+    <div class="flex-item d">4</div>
+    <div class="flex-item e">5</div>
+    
+  </div>
+</body>
+</html>

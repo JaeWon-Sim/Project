@@ -1,0 +1,9 @@
+package sec02.exam01.driver;
+
+public class Driver extends Car{
+	
+	void drivecar() {
+		new Car();
+	}
+
+}

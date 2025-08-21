@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>도움 요청</title>
+    <link rel="stylesheet" href="1_2도움요청페이지.css">
+</head>
+<body>
+
+  <h2>도움 요청 사항을 입력해주세요</h2>
+
+  <form>
+    <div class="label-row">
+      <label for="address">주소</label>
+      <!-- 기본 내 페이지에 있는 주소 가져오기 -->
+      <button type="button" id="adressbtn">내 주소 입력하기</button>
+    </div>
+    <input type="text" id="address" name="address" placeholder="주소를 입력해주세요" />
+
+    <label for="time">예상 소요 시간</label>
+    <input type="text" id="time" name="time" placeholder="얼마나 걸릴지 써주세요!  예시) 1시간 or 30분 "/>
+
+    <label for="request">요청사항</label>
+    <input type="text" id="request" name="request" placeholder="병원, 산책, 등등..."/>
+
+    <label for="problem">불편 사항</label>
+    <textarea id="problem" name="problem" placeholder="아픈곳이 있거나 조심해야 할 부분을 써주세요"></textarea>
+
+    <div class="button-group">
+        <!-- 기분 설문조사 페이지로 이동  -->
+        <button type="submit" class="submit-btn">도움 요청</button>
+        <!-- 메칭 페이지로 이동 -->
+        <button type="reset" class="cancel-btn">취소 하기</button>
+    </div>
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+
+.x {
+  position: relative;
+  width: 1000px;
+}
+
+.p1 {
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+}
+
+.item {
+  position: relative;
+}
+
+.a {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.a1 { background-color: black; }
+.a2 { background-color: rgb(223, 133, 133); }
+.a3 { background-color: rgb(236, 0, 0); }
+.a4 { background-color: rgb(250, 250, 250); }
+.a5 { background-color: rgb(5, 243, 24); }
+
+.b {
+  position: absolute;
+  top: 0;
+  left: 210px;
+  width: 750px;
+  height: 1000px;
+  display: none;
+  z-index: 1;
+  border: 2px solid black;
+}
+
+.b1 { background-color: black; }
+.b2 { background-color: rgb(223, 133, 133); }
+.b3 { background-color: rgb(236, 0, 0); }
+.b4 { background-color: rgb(250, 250, 250); }
+.b5 { background-color: rgb(5, 243, 24); }
+
+.item:hover .b {
+  display: block;
+}

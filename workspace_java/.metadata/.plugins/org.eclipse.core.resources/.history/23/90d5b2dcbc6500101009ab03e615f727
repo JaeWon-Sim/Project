@@ -1,0 +1,17 @@
+package quiz.cafe;
+
+public class Compose extends Cafe{
+
+	Compose(){
+		super();
+		Cafe c = new Cafe();
+		c.cafe = "compose";
+		setMenu();
+	}
+	
+	void setMenu() {
+		
+	}
+	
+	
+}

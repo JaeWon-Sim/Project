@@ -1,0 +1,20 @@
+package sec01.exam01;
+
+public class ExtendsExam {
+
+	public static void main(String[] args) {
+		//Child를 생성해서 print를 실행
+		
+		Child c = new Child();
+		System.out.println("==========================");
+		c.printName();
+		
+		System.out.println( c.getName() );
+		c.setName("바뀐 이름");
+		System.out.println( c.getName() );
+		System.out.println(c.name);
+		
+		
+	}
+}
+

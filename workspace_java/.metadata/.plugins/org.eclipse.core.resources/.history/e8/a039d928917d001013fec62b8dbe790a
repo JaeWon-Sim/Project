@@ -1,0 +1,28 @@
+package emp.controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/EmpRemoveController")
+public class EmpRemoveController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		
+		String rEmpno = request.getParameter("empno");
+		//1. detail 페이지에서 삭제 버튼을 누르면
+		
+		//2. empno값을 가져오고
+		
+		//3. 
+		
+	}
+
+}

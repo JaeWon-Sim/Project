@@ -1,0 +1,12 @@
+package quiz.cafe;
+
+public class CafeExam {
+
+	public static void main(String[] args) {
+		Cafe c = new Cafe();
+		
+		
+		
+	}
+
+}

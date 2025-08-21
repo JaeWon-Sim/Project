@@ -1,0 +1,62 @@
+package quiz.cafe.teacer;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Cafe {
+	String building;
+	String name;
+	int empcnt;
+	HashMap menumap;
+	ArrayList list;
+	int money = -1;
+	String menu;
+	int cnt;
+	
+	Cafe(String building, String name, int empcnt, HashMap menumap){
+		this.building = building;
+		this.name = name;
+		this.empcnt = empcnt;
+		this.menumap = menumap;
+	}
+	Cafe(String building, String name){
+		this(building, name, 0, null);
+	}
+	
+	int order(String menu, int cnt) {
+		System.out.println("ÁÖ¹®³»¿ª");
+		System.out.println("menu : "+menu);
+		System.out.println("cnt : "+cnt);
+		
+		int money = -1;
+			if(this.menumap.get(menu) != null) {
+				money = (int)this.menumap.get(menu)*cnt;
+				this.menu = menu;
+				this.cnt = cnt;
+			}
+		this.money = money;
+		return money;
+	}
+	
+	int pay(int money) {
+		if(this.money != -1) {
+			return money;
+		}else if(this.money <= money) {
+			return money - this.money;
+		}else{
+			return money;
+		}
+		
+	}
+	
+	void serve () {
+		System.out.println("ÁÖ¹®ÇÏ½Å "+this.menu+", "+this.cnt+"°³"+" ³ª¿Ô½À´Ï´Ù");
+	}
+	
+	void make() {
+		System.out.println("È÷ÆR");
+		
+		serve();
+		
+	}
+}

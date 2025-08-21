@@ -1,0 +1,78 @@
+package emp.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import emp.dto.EmpDTO;
+import emp.service.EmpService;
+
+@WebServlet("/edit")
+public class EmpEditController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		
+		// empno를 int로 형변환
+		int empno = 0;
+		try {
+			String sEmpno = request.getParameter("empno");
+			if(sEmpno != null) {
+				empno = Integer.parseInt(sEmpno);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		EmpDTO empDTO = new EmpDTO();
+		empDTO.setEmpno(empno);
+		
+		//DB다녀와서 출력하기
+		try {
+			
+			EmpService empService = new EmpService();
+			
+			EmpDTO empDTO2 = empService.getOneEmp(empDTO);
+			
+			PrintWriter o = response.getWriter();
+			o.println("<a href='list'><button>목록으로</button></a>");
+			
+			o.println("<form method='get' action='edit'>");
+			o.println("<table border=1>");
+			o.println("<tr><td>empno</td><td><input type='text' name='empno' value='"+ empDTO2.getEmpno()+"'</td></tr>");
+			o.println("<tr><td>ename</td><td><input type='text' name='ename' value='"+ empDTO2.getEname()+"'</td></tr>");
+			o.println("<tr><td>job</td><td><input type='text' name='job' value='"+ empDTO2.getJob()+"'</td></tr>");
+			o.println("<tr><td>mgr</td><td><input type='text' name='empno' mgr='"+ empDTO2.getMgr()+"'</td></tr>");
+			o.println("<tr><td>hiredate</td><td><input type='date' name='hiredate' value='"+ empDTO2.getHiredate()+"'</td></tr>");
+			o.println("<tr><td>sal</td><td><input type='text' name='sal' value='"+ empDTO2.getSal()+"'</td></tr>");
+			o.println("<tr><td>comm</td><td><input type='text' name='comm' value='"+ empDTO2.getComm()+"'</td></tr>");
+			o.println("<tr><td>deptno</td><td><input type='text' name='deptno' value='"+ empDTO2.getDeptno()+"'</td></tr>");
+			o.println("</table>");
+			o.println("<input type='submit' value='수정하기'>");
+			o.println("</form>");
+
+			o.println("<form method='post' action='remove'>");
+			o.println("		<input type='hidden' name='empno' value='"+empDTO2.getEmpno()+"'>");
+			o.println("		<input type='submit' value='삭제'>");
+			o.println("</form>");
+			o.println("<form method='get' action='edit'>");
+			o.println("		<input type='hidden' name='empno' value='"+empDTO2.getEmpno()+"'>");
+			o.println("		<input type='submit' value='수정'>");
+			o.println("</form>");
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+}

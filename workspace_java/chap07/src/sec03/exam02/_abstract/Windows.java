@@ -1,0 +1,17 @@
+package sec03.exam02._abstract;
+
+public abstract class Windows {
+
+	void boot() {
+		System.out.println("CMOS 실행");
+		System.out.println("Window 실행");
+		start();
+		System.out.println("마우스 커스는 로딩중");
+	}
+	
+	abstract void start();
+	
+//	abstract void deskTop();
+	
+	
+}

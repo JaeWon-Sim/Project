@@ -1,0 +1,6 @@
+package quiz.cafe;
+
+public class Menu {
+	String menu;
+	int price;
+}

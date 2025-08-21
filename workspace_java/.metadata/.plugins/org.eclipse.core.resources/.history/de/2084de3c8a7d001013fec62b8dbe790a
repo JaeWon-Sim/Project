@@ -1,0 +1,65 @@
+package emp.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import emp.dto.EmpDTO;
+import emp.service.EmpService;
+
+@WebServlet("/detail")
+public class EmpDetailController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("/detail doGet 어서오고 : 한명만 팬다");
+		
+		// empno를 int로 형변환
+		int empno = 0;
+		try {
+			String sEmpno = request.getParameter("empno");
+			if(sEmpno != null) {
+				empno = Integer.parseInt(sEmpno);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		EmpDTO empDTO = new EmpDTO();
+		empDTO.setEmpno(empno);
+		
+		//DB다녀와서 출력하기
+		try {
+			
+			EmpService empService = new EmpService();
+			EmpDTO empDTO2 = empService.getOneEmp(empDTO);
+			
+			PrintWriter o = response.getWriter();
+			o.println("<table border=1>");
+			o.println("<tr><td>empno</td><td>"+ empDTO2.getEmpno()+"<tr><td></td><td>");
+			o.println("<tr><td>ename</td><td>"+ empDTO2.getEname()+"<tr><td></td><td>");
+			o.println("<tr><td>job</td><td>"+ empDTO2.getJob()+"<tr><td></td><td>");
+			o.println("<tr><td>mgr</td><td>"+ empDTO2.getMgr()+"<tr><td></td><td>");
+			o.println("<tr><td>hiredate</td><td>"+ empDTO2.getHiredate()+"<tr><td></td><td>");
+			o.println("<tr><td>sal</td><td>"+ empDTO2.getSal()+"<tr><td></td><td>");
+			o.println("<tr><td>comm</td><td>"+ empDTO2.getComm()+"<tr><td></td><td>");
+			o.println("<tr><td>deptno</td><td>"+ empDTO2.getDeptno()+"<tr><td></td><td>");
+			o.println("</table>");
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		
+	}
+
+}

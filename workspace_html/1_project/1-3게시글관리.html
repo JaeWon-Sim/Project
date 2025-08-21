@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>관리자모드</title>
+    <link rel="stylesheet" href="1-3게시글관리.css">
+</head>
+<header class="support-header">
+    <div class="header-left">
+        <a href="/">
+            <img src="logo.png" alt="한끼온 로고" class="header-logo-img" />
+        </a>
+    </div>
+    <div class="header-nav-wrapper">
+        <nav class="header-nav">
+            <a href="/matching">매칭페이지</a>
+            <a href="/board">게시판</a>
+            <a href="/support">고객지원</a>
+            <a href="/mileage">마일리지 사용처</a>
+            <a href="/warmthmap">온기지도</a>
+            <a href="/admin" class="admin-nav-link">관리자 모드</a>
+        </nav>
+    </div>
+    <div class="header-right">
+        <button class="header-login-btn">로그아웃</button>
+    </div>
+</header>
+
+<body>
+    <div class="UCcontainer">
+        <div>
+            <aside class="sidebar">
+                <div class="admin-mode">관리자 모드</div>
+                <nav class="side-nav">
+                    <ul>
+                        <li><a href="#">사용자 관리</a></li>
+                        <li><a href="#">문의 내역</a></li>
+                        <li class="active"><a href="#">게시글 관리</a></li>
+                        <li><a href="#">시스템설정</a></li>
+                        <li><a href="#">통계</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
+        <div class="UCcontent">
+            <h1 class="UC1">게시글 목록</h1>
+
+            <table class="UCpost-table">
+                <thead>
+                    <tr>
+                        <th>아이디</th>
+                        <th>게시글 제목</th>
+                        <th>글작성날짜</th>
+                        <th>삭제</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-author="ehdgus12" data-title="동현이 바보." data-content="************욕설 ***************"
+                        data-date="2025-7-31 T 14:42">
+                        <td>ehdgus12</td>
+                        <td>동현이 바보.</td>
+                        <td>2025-7-31 T 14:42</td>
+                        <td><button class="UCbtn-delete">삭제</button></td>
+                    </tr>
+                    <tr data-author="dndud1" data-title="바보바보바보바보" data-content="내용 예시 2" data-date="2025-8-01 T 08:14">
+                        <td>dndud1</td>
+                        <td>바보바보바보바보</td>
+                        <td>2025-8-01 T 08:14</td>
+                        <td><button class="UCbtn-delete">삭제</button></td>
+                    </tr>
+                    <tr data-author="wowon777" data-title="안녕하세요 반갑습니다" data-content="내용 예시 3"
+                        data-date="2025-8-01 T 12:33">
+                        <td>wowon777</td>
+                        <td>안녕하세요 반갑습니다</td>
+                        <td>2025-8-01 T 12:33</td>
+                        <td><button class="UCbtn-delete">삭제</button></td>
+                    </tr>
+                    <tr data-author="woghd_123" data-title="이거 어떻게함" data-content="내용 예시 4"
+                        data-date="2025-8-02 T 17:52">
+                        <td>woghd_123</td>
+                        <td>이거 어떻게함</td>
+                        <td>2025-8-02 T 17:52</td>
+                        <td><button class="UCbtn-delete">삭제</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="UCpagination">
+                <a href="#">&lt;</a>
+                <a href="#" class="current">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <span>…</span>
+                <a href="#">10</a>
+                <a href="#">&gt;</a>
+            </div>
+
+            <div class="UCpost-detail">
+                <div class="UCrow">
+                    <label>작성자</label><span class="value" id="detailAuthor"></span>
+                    <label>제목</label><span class="value" id="detailTitle"></span>
+                    <button class="UCbtn-delete" id="detailDeleteBtn">삭제</button>
+                    <button class="UCbtn-block" id="sanctionBtn">제재</button>
+                </div>
+
+                <div id="sanctionContainer">
+                    <label for="sanctionSelect">제재 옵션:</label>
+                    <select id="sanctionSelect">
+                        <option value="warning">경고</option>
+                        <option value="1day">1일 정지</option>
+                        <option value="7days">7일 정지</option>
+                        <option value="delete">계정 삭제</option>
+                    </select>
+                    <button id="UCsanctionApplyBtn">적용</button>
+                </div>
+
+                <div class="UCcontent">
+                    <label>내용</label>
+                    <textarea readonly id="UCdetailContent"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const rows = document.querySelectorAll('table.UCpost-table tbody tr');
+            const detailBox = document.querySelector('.UCpost-detail');
+            const authorEl = document.getElementById('detailAuthor');
+            const titleEl = document.getElementById('detailTitle');
+            const contentEl = document.getElementById('UCdetailContent');
+            const detailDeleteBtn = document.getElementById('detailDeleteBtn');
+            const sanctionBtn = document.getElementById('sanctionBtn');
+            const sanctionContainer = document.getElementById('sanctionContainer');
+            const sanctionSelect = document.getElementById('sanctionSelect');
+            const sanctionApplyBtn = document.getElementById('UCsanctionApplyBtn');
+
+            let selectedRow = null;
+
+            // 1) 목록 행 클릭 → 상세보기 로드
+            rows.forEach(row => {
+                row.addEventListener('click', () => {
+                    if (selectedRow) selectedRow.classList.remove('selected');
+                    selectedRow = row;
+                    row.classList.add('selected');
+                    authorEl.textContent = row.dataset.author;
+                    titleEl.textContent = row.dataset.title;
+                    contentEl.value = row.dataset.content;
+                    detailBox.style.display = 'block';
+                    sanctionContainer.style.display = 'none';
+                });
+            });
+
+            // 2) 목록 삭제 버튼
+            document.querySelectorAll('.UCpost-table .UCbtn-delete').forEach(btn => {
+                btn.addEventListener('click', e => {
+                    e.stopPropagation();
+                    const tr = btn.closest('tr');
+                    tr.remove();
+                    if (tr === selectedRow) {
+                        detailBox.style.display = 'none';
+                        selectedRow = null;
+                    }
+                });
+            });
+
+            // 3) 상세보기 삭제 버튼
+            detailDeleteBtn.addEventListener('click', () => {
+                if (selectedRow) {
+                    selectedRow.remove();
+                    detailBox.style.display = 'none';
+                    selectedRow = null;
+                }
+            });
+
+            // 4) 제재 버튼 → 옵션 토글
+            sanctionBtn.addEventListener('click', () => {
+                sanctionContainer.style.display =
+                    sanctionContainer.style.display === 'flex' ? 'none' : 'flex';
+            });
+
+            // 5) 제재 적용 버튼 → 알림창 후 삭제
+            sanctionApplyBtn.addEventListener('click', () => {
+                if (!selectedRow) {
+                    alert('먼저 게시글을 선택해주세요.');
+                    return;
+                }
+                const opt = sanctionSelect.value;
+                const title = selectedRow.dataset.title;
+                let msg = '';
+                switch (opt) {
+                    case 'warning': msg = '경고 처리되었습니다.'; break;
+                    case '1day': msg = '1일 정지 처리되었습니다.'; break;
+                    case '7days': msg = '7일 정지 처리되었습니다.'; break;
+                    case 'delete': msg = '계정이 삭제 처리되었습니다.'; break;
+                }
+                alert(`"${title}" 게시글 작성자에게 ${msg}`);
+                // 알림 확인 후 삭제 처리
+                selectedRow.remove();
+                detailBox.style.display = 'none';
+                selectedRow = null;
+                sanctionContainer.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>

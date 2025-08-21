@@ -1,0 +1,21 @@
+package quiz.cafe;
+
+public class Towsome extends Cafe{
+
+	Menu [] menu = new Menu[2];
+	
+	Towsome(){
+		super("towsome");
+		setMenu();
+	}
+	
+	void setMenu() {
+		menu[0] = new Menu();
+		menu[0].coffee = "아이스아메리카노";
+		menu[0].price = 2500;
+		
+		menu[1] = new Menu();
+		menu[1].coffee = "라때";
+		menu[1].price = 4000;
+	}
+}

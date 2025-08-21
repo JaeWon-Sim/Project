@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<form method="post" action ="/_2project_request/lg">
+
+이름<input type="text" name="name" class="name">
+id<input type="text" name="id" class="id">
+pw<input type="text" name="pw" class="pw">
+<input type="submit" name="회원가입" value="회원가입완료">
+
+</form>
+<script>
+	
+	function c (){
+		alert("빈칸없이 작성해 주세요");
+		}
+		
+	
+		const name = document.querySelector(".name").value;
+		const id = document.querySelector(".id").value;
+		const pw = document.querySelector(".pw").value;
+	if(name==""&&id==""&&pw==""){
+		c();
+	}
+
+
+</script>
+</body>
+</html>

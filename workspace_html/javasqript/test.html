@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <a href="#" onclick="simulateF5(event)">F5 새로고침</a>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelector('#btn3').addEventListener('click', function () {
+            const serviceKey = 'ffB41D%2FkKVWbkLs4ZqHhto%2FPIsIaIuid0OPZPrj%2B0B0SDgb06uMZiJAnvwo5gGaCj%2FKX%2FaVRI4Z%2FxnbS8n%2FLmw%3D%3D';
+            let url = 'https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst';
+            url += `?serviceKey=${serviceKey}`;
+            url += '&numOfRows=1000';
+            url += '&pageNo=1';
+            url += '&dataType=JSON';
+            url += '&base_date=20250714'; // 예: 오늘 날짜
+            url += '&base_time=1400';     // 예: 최근 발표 시각
+            url += '&nx=63';
+            url += '&ny=110';
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const items = data.response.body.items.item;
+
+                    // 17:00 데이터만 필터링
+                    const filtered = items.filter(item => item.fcstTime === '1700');
+
+                    // 필요한 값 추출
+                    const temperature = filtered.find(item => item.category === 'T1H');
+                    const rainfall    = filtered.find(item => item.category === 'RN1');
+                    const humidity    = filtered.find(item => item.category === 'REH');
+
+                    console.log('🌡️ 온도:', temperature?.fcstValue ?? '없음');
+                    console.log('☔ 강수량:', rainfall?.fcstValue ?? '없음');
+                    console.log('💧 습도:', humidity?.fcstValue ?? '없음');
+                })
+                .catch(error => {
+                    console.error('에러 발생:', error);
+                });
+        });
+    });
+
+</script>
+</body>
+</html>

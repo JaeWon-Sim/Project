@@ -1,0 +1,10 @@
+package sec02.exam01;
+
+public class Animal {
+
+	int age;
+	
+	void eat () {
+		System.out.println("ธิดยดู");
+	}
+}

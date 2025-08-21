@@ -1,0 +1,11 @@
+package movie.DAO;
+
+public class MovieDAO {
+
+	public List<MovieDTO> movieList(MovieDTO dto){
+		
+	}
+
+}
+	
+

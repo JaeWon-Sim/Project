@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Spring]]></title><description><![CDATA[Level up your Java code and explore what Spring can do for you.]]></description><link>https://spring.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 21 Aug 2025 00:35:18 GMT</lastBuildDate><item><title><![CDATA[Spring Batch 6.0.0-M2 available now]]></title><link>https://spring.io/blog/2025/08/20/spring-batch-6</link><guid isPermaLink="true">https://spring.io/blog/2025/08/20/spring-batch-6</guid><dc:creator><![CDATA[fmbenhassine]]></dc:creator><pubDate>Wed, 20 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I am pleased to announce that Spring Batch &lt;code&gt;6.0.0-M2&lt;/code&gt; is available now from Maven Central!&lt;/p&gt;
+&lt;p&gt;In this milestone release, we shipped the following features and improvements:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dependencies upgrade&lt;/li&gt;
+&lt;li&gt;New implementation of the chunk-oriented processing model&lt;/li&gt;
+&lt;li&gt;Ability to recover abruptly failed job executions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For the complete list of changes, please check the &lt;a href=&quot;https://github.com/spring-projects/spring-batch/releases/tag/v6.0.0-M2&quot;&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;dependencies-upgrade&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#dependencies-upgrade&quot; aria-label=&quot;dependencies upgrade permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Dependencies upgrade&lt;/h2&gt;
+&lt;p&gt;In this milestone release, the Spring dependencies are upgraded to the following versions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Spring Framework: 7.0.0-M8&lt;/li&gt;
+&lt;li&gt;Spring Integration: 7.0.0-M2&lt;/li&gt;
+&lt;li&gt;Spring AMQP: 4.0.0-M4&lt;/li&gt;
+&lt;li&gt;Spring Kafka: 4.0.0-M4&lt;/li&gt;
+&lt;li&gt;Spring Data: 4.0.0-M5&lt;/li&gt;
+&lt;li&gt;Spring Ldap: 4.0.0-M2&lt;/li&gt;
+&lt;li&gt;Micrometer: 1.16.0-M2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please note that this release is compatible with Java 17+.&lt;/p&gt;
+&lt;h2 id=&quot;new-implementation-of-the-chunk-oriented-processing-model&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#new-implementation-of-the-chunk-oriented-processing-model&quot; aria-label=&quot;new implementation of the chunk oriented processing model permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;New implementation of the chunk-oriented processing model&lt;/h2&gt;
+&lt;p&gt;This is not a new feature, but rather a new, enhanced implementation of the chunk-oriented processing model. This new implementation was introduced as an experimental addition in version 5.1, and is now available as stable in version 6.0.&lt;/p&gt;
+&lt;p&gt;The new implementation is provided in the &lt;code&gt;ChunkOrientedStep&lt;/code&gt; class, which is a replacement for the &lt;code&gt;ChunkOrientedTasklet&lt;/code&gt; / &lt;code&gt;TaskletStep&lt;/code&gt; classes.&lt;/p&gt;
+&lt;p&gt;Here is an example of how to define a &lt;code&gt;ChunkOrientedStep&lt;/code&gt; by using its builder:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;@Bean
+public Step chunkOrientedStep(JobRepository jobRepository, JdbcTransactionManager transactionManager,
+    ItemReader&amp;#x3C;Person&gt; itemReader, ItemProcessor&amp;#x3C;Person, Person&gt; itemProcessor, ItemWriter&amp;#x3C;Person&gt; itemWriter) {
+    
+    int chunkSize = 100;
+    return new ChunkOrientedStepBuilder&amp;#x3C;Person, Person&gt;(jobRepository, transactionManager, chunkSize)
+        .reader(itemReader)
+        .processor(itemProcessor)
+        .writer(itemWriter)
+        .build();
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Moreover, fault-tolerance features were adapted as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The retry feature is now based on the retry functionality introduced in &lt;a href=&quot;https://docs.spring.io/spring/reference/7.0/core/resilience.html&quot;&gt;Spring Framework 7&lt;/a&gt;, instead of the previous Spring Retry library&lt;/li&gt;
+&lt;li&gt;The skip feature has been slightly adapted to the new implementation, which is now entirely based on the &lt;code&gt;SkipPolicy&lt;/code&gt; interface&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here is a quick example of how to use the retry and skip features with the new &lt;code&gt;ChunkOrientedStep&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;@Bean
+public Step faulTolerantChunkOrientedStep(JobRepository jobRepository, JdbcTransactionManager transactionManager,
+    ItemReader&amp;#x3C;Person&gt; itemReader, ItemProcessor&amp;#x3C;Person, Person&gt; itemProcessor, ItemWriter&amp;#x3C;Person&gt; itemWriter) {
+
+    // retry policy configuration
+    int maxAttempts = 10;
+    var retrybaleExceptions = Set.of(TransientException.class);
+    RetryPolicy retryPolicy = RetryPolicy.builder()
+        .maxAttempts(maxAttempts)
+        .includes(retrybaleExceptions)
+        .build();
+
+    // skip policy configuration
+    int skipLimit = 50;
+    var skippableExceptions = Set.of(FlatFileParseException.class);
+    SkipPolicy skipPolicy = new LimitCheckingItemSkipPolicy(skipLimit, skippableExceptions);
+
+    // step configuration
+    int chunkSize = 100;
+    return new ChunkOrientedStepBuilder&amp;#x3C;Person, Person&gt;(jobRepository, transactionManager, chunkSize)
+        .reader(itemReader)
+        .processor(itemProcessor)
+        .writer(itemWriter)
+        .faultTolerant()
+        .retryPolicy(retryPolicy)
+        .skipPolicy(skipPolicy)
+        .build();
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Please refer to the &lt;a href=&quot;https://github.com/spring-projects/spring-batch/wiki/Spring-Batch-6.0-Migration-Guide&quot;&gt;migration guide&lt;/a&gt; for more details on how to migrate from the previous implementation to the new one.&lt;/p&gt;
+&lt;h2 id=&quot;ability-to-recover-failed-job-executions&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ability-to-recover-failed-job-executions&quot; aria-label=&quot;ability to recover failed job executions permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Ability to recover failed job executions&lt;/h2&gt;
+&lt;p&gt;Prior to v6, if a job execution fails abruptly, it was not possible to recover it without a manual database update. This was error-prone and not consistent across different job repositories (as it required a few SQL statements for JDBC databases and some custom statements for NoSQL stores).&lt;/p&gt;
+&lt;p&gt;This milestone release introduces a new method named &lt;code&gt;recover&lt;/code&gt; in the &lt;code&gt;JobOperator&lt;/code&gt; interface that allows you to recover failed job executions consistently across all job repositories.&lt;/p&gt;
+&lt;h2 id=&quot;feedback&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#feedback&quot; aria-label=&quot;feedback permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;I would like to thank all contributors who had a role in this release! As we continue
+our work on Spring Batch 6, we look forward to your feedback on &lt;a href=&quot;https://github.com/spring-projects/spring-batch/issues&quot;&gt;Github Issues&lt;/a&gt;, &lt;a href=&quot;https://github.com/spring-projects/spring-batch/discussions&quot;&gt;Github Discussions&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/springbatch&quot;&gt;X&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href=&quot;https://spring.io/projects/spring-batch&quot;&gt;Spring Batch Home&lt;/a&gt;|&lt;a href=&quot;https://github.com/spring-projects/spring-batch&quot;&gt;Source on Github&lt;/a&gt;|&lt;a href=&quot;https://docs.spring.io/spring-batch/reference/6.0/index.html&quot;&gt;Reference documentation&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Spring Authorization Server 2.0.0-M2, 1.5.2 and 1.4.5 available now]]></title><link>https://spring.io/blog/2025/08/19/spring-authorization-server-2-0-0-M2-1-5-2-and-1-4-5-available-now</link><guid isPermaLink="true">https://spring.io/blog/2025/08/19/spring-authorization-server-2-0-0-M2-1-5-2-and-1-4-5-available-now</guid><dc:creator><![CDATA[jgrandja]]></dc:creator><pubDate>Tue, 19 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;On behalf of the team and everyone who has contributed, it is my pleasure to announce the releases of Spring Authorization Server 2.0.0-M2, 1.5.2 and 1.4.5.&lt;/p&gt;
+&lt;p&gt;See the &lt;a href=&quot;https://github.com/spring-projects/spring-authorization-server/releases/tag/2.0.0-M2&quot;&gt;2.0.0-M2&lt;/a&gt;, &lt;a href=&quot;https://github.com/spring-projects/spring-authorization-server/releases/tag/1.5.2&quot;&gt;1.5.2&lt;/a&gt; and &lt;a href=&quot;https://github.com/spring-projects/spring-authorization-server/releases/tag/1.4.5&quot;&gt;1.4.5&lt;/a&gt; release notes for complete details.&lt;/p&gt;
+&lt;p&gt;To get started using Spring Authorization Server, see the &lt;a href=&quot;https://docs.spring.io/spring-authorization-server/reference/getting-started.html&quot;&gt;Getting Started&lt;/a&gt; chapter of the reference documentation and the &lt;a href=&quot;https://github.com/spring-projects/spring-authorization-server/tree/main/samples&quot;&gt;samples&lt;/a&gt; to become familiar with setup and configuration.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://spring.io/projects/spring-authorization-server&quot;&gt;Project Page&lt;/a&gt; | &lt;a href=&quot;https://github.com/spring-projects/spring-authorization-server/issues&quot;&gt;GitHub Issues&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[This Week in Spring - August 19th, 2025]]></title><link>https://spring.io/blog/2025/08/19/this-week-in-spring-august-19th-2025</link><guid isPermaLink="true">https://spring.io/blog/2025/08/19/this-week-in-spring-august-19th-2025</guid><dc:creator><![CDATA[joshlong]]></dc:creator><pubDate>Tue, 19 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Hi, Spring fans! Welcome to another extra special installment of &lt;em&gt;This Week in Spring&lt;/em&gt; - special because the next installment will be delivered from the floors of the Ventian where the extraordinairily awesome &lt;a href=&quot;https://springone.io&quot;&gt;&lt;strong&gt;SpringOne 2025&lt;/strong&gt;&lt;/a&gt; event will take place!&lt;/p&gt;
+&lt;p&gt;So, some poetry:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;T¡¯was the Week Before SpringOne&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;T¡¯was the week before SpringOne, when all through the code,&lt;/em&gt;
+&lt;em&gt;Not a bean was left hanging, not even in load.&lt;/em&gt;
+&lt;em&gt;The sessions were queued in the schedule with care,&lt;/em&gt;
+&lt;em&gt;In hopes that the keynote soon would be there.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Developers nestled all snug at their keys,&lt;/em&gt;
+&lt;em&gt;Dreaming of boot apps and APIs with ease.&lt;/em&gt;
+&lt;em&gt;With visions of cloud-native dreams in their head,&lt;/em&gt;
+&lt;em&gt;They packed for Las Vegas, excitement widespread.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;For SpringOne was coming ? bright lights and pure bliss ?&lt;/em&gt;
+&lt;em&gt;At the grand Venetian, none dared to miss.&lt;/em&gt;
+&lt;em&gt;The premier of Spring, of Java, of cloud,&lt;/em&gt;
+&lt;em&gt;A gathering epic, electric, and proud!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I am &lt;em&gt;so&lt;/em&gt; excited! And behind. There&apos;s oh-so-much to do and so little time in which to do it! Will &lt;a href=&quot;https://springone.io&quot;&gt;you be there&lt;/a&gt;? Be sure to say &quot;hi&quot;!&lt;/p&gt;
+&lt;p&gt;In the meantime, as we wait, there&apos;s a lot to dig into this week so let&apos;s get going!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2025/08/19/spring-authorization-server-2-0-0-M2-1-5-2-and-1-4-5-available-now&quot;&gt;Spring Authorization Server 2.0.0 M2, 1.5.2, and 1.4.5 are all available now&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2025/08/18/spring-security-6-4-9-and-6-5-3-released&quot;&gt;Spring Security 6.4.9 and 6.5.3 are available now&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2025/08/18/spring-security-7-0-0-M2-available-now&quot;&gt;Spring Security 7.0.0 M2 available now&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2025/08/18/spring-for-apache-pulsar-1-2-9-and-2-0-0-M2-are-now-available&quot;&gt;Spring for Apache Pulsar 1.2.9 and 2.0.0 M2 are available now, too&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2025/08/15/spring-data-2025-0-3-and-2024-1-9-released&quot;&gt;Spring Data 2025.0.3 and 2024.1.9 released&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2025/08/15/spring-data-2025-1-0-M5-released&quot;&gt;Spring Data 2025.1.0-M5 released&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;In last week&apos;s installment of &lt;em&gt;A Bootiful Podcast&lt;/em&gt;, &lt;a href=&quot;https://spring.io/blog/2025/08/14/a-bootiful-podcast-oliver-drohtbohm&quot;&gt;I talked to Spring Modulith lead and architure guru extraordinairre Oliver Drotbohm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2025/08/14/spring-framework-7-0-0-M8-available-now&quot;&gt;Spring Framework 7.0.0 M8 is available now&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Spring Framwork 6.2.10 (fixing CVE 2025-41242!) &lt;a href=&quot;https://spring.io/blog/2025/08/14/spring-framework-6-2-10-release-fixes-cve-2025-41242&quot;&gt;available now&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Embabel, an agentic framework built by Spring creator Rod Johnson on top of Spring AI, is a &lt;em&gt;very&lt;/em&gt; interesting technology and this blog - &lt;a href=&quot;https://www.linkedin.com/posts/johnsonroda_you-can-build-better-ai-agents-in-java-than-activity-7363159556245393408-QXDR?rcm=ACoAAACXdIABb8VbfXttpb7WA9oliQsXOS5rEgw&quot;&gt;looking at why Embabel and the JVM are better suited to agentic workflows than their would-be equivalents in Python &lt;/a&gt; - is well worth reading!&lt;/li&gt;
+&lt;li&gt;Speaking of agentic AI, check out htis workshop being &lt;a href=&quot;https://aws-experience.com/emea/smb/e/90912/building-java-ai-agents-with-spring-ai&quot;&gt;held by AWS online that uses Spring AI with AWS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;I love  this video by David Baker on the JSpecify effort which underpins &lt;a href=&quot;https://www.youtube.com/watch?si=VOFRSKyoPEu3mHXJ&amp;#x26;v=z_IO2_XeW2Q&amp;#x26;feature=youtu.be&quot;&gt;the nullability efforts in Spring Framework 7 and Spring Boot 4&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;friend of the community &lt;a href=&quot;https://www.youtube.com/watch?v=oP7tn_YfoOk&quot;&gt;Siva Prasad Reddy has an awesome new tutorial on Spring AI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Want to follow the Spring team on Blue in addition to X/Twitter? &lt;a href=&quot;https://www.linkedin.com/posts/deleuze_spring-springio-activity-7359487069800357889-WseA?rcm=ACoAAACXdIABb8VbfXttpb7WA9oliQsXOS5rEgw&quot;&gt;We&apos;re there!&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Awesome! Finally an easy tool to use to understand which generation of which project &lt;a href=&quot;https://spring.io/projects/generations/&quot;&gt;goes with which version of Spring Boot&lt;/a&gt;!&lt;/li&gt;
+&lt;li&gt;check out this awesome explainer on API versioning in Spring Framework 7 &lt;a href=&quot;https://www.youtube.com/watch?v=ZA-MzWpKvtQ&quot;&gt;by Spring Framework contributor Rossen Stoyanchev&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Spring Security 6.4.9 and 6.5.3 Released]]></title><link>https://spring.io/blog/2025/08/18/spring-security-6-4-9-and-6-5-3-released</link><guid isPermaLink="true">https://spring.io/blog/2025/08/18/spring-security-6-4-9-and-6-5-3-released</guid><dc:creator><![CDATA[jzheaux]]></dc:creator><pubDate>Mon, 18 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;On behalf of the team and everyone who has contributed, I am pleased to announce the availability of Spring Security &lt;code&gt;6.4.9&lt;/code&gt; and &lt;code&gt;6.5.3&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Spring Security &lt;code&gt;6.4.9&lt;/code&gt; ships with &lt;a href=&quot;https://github.com/spring-projects/spring-security/releases/tag/6.4.9&quot;&gt;5 fixes and several dependency upgrades&lt;/a&gt;. This version will be shipped next week with Spring Boot &lt;code&gt;3.4.9&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Spring Security &lt;code&gt;6.5.3&lt;/code&gt; ships with &lt;a href=&quot;https://github.com/spring-projects/spring-security/releases/tag/6.5.3&quot;&gt;8 fixes and several dependency upgrades&lt;/a&gt;. This version will be shipped next week with Spring Boot &lt;code&gt;3.5.5&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://spring.io/projects/spring-security/&quot;&gt;Project Page&lt;/a&gt; | &lt;a href=&quot;https://github.com/spring-projects/spring-security&quot;&gt;GitHub&lt;/a&gt; | &lt;a href=&quot;https://github.com/spring-projects/spring-security/issues&quot;&gt;Issues&lt;/a&gt; | &lt;a href=&quot;https://docs.spring.io/spring-security/reference/&quot;&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>

@@ -1,0 +1,13 @@
+package quiz.class1;
+
+public class StudyExam {
+
+	public static void main(String[] args) {
+
+		Study s = new Study();
+		
+		JaewonController j = new JaewonController();
+		
+	}
+
+}

@@ -1,0 +1,20 @@
+package quiz.class1;
+
+import java.util.HashMap;
+
+public class JaewonDAO {
+	
+	HashMap map = new HashMap();
+	
+	JaewonDAO(){
+		map.put("사탕","청포도");
+		map.put("점심","달식당");
+		map.put("회식","ㅇㄷ?");
+		map.put("휴식","네?");
+	}
+	
+	String selectAnswer(String question) {
+		return (String)map.get(question);
+	}
+
+}

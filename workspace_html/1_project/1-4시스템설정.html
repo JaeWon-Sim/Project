@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> </title>
+  <link rel="stylesheet" href="1-4시스템설정.css">
+</head>
+<body>
+
+  <!-- 공지 발송 -->
+  <div class="SCsection SCnotice-section">
+    <div class="SCsection-header"><span class="icon">📧</span>공지 발송</div>
+    <div class="SCid-filter">
+      <label for="noticeId">아이디</label>
+      <input id="noticeId" type="text" placeholder="아이디를 입력하세요">
+      <label><input type="radio" name="noticeScope" value="all">전체</label>
+      <button id="noticeSendBtn" class="SCbtn SCnotice-send-btn">전송</button>
+    </div>
+    <textarea id="noticeMsg" placeholder="내용을 입력하세요..."></textarea>
+  </div>
+
+  <!-- 팝업 설정 -->
+  <div class="SCsection SCpopup-section">
+    <div class="SCsection-header"><span class="icon">📋</span>팝업 설정</div>
+    <div class="SCid-filter">
+      <label for="popupId">아이디</label>
+      <input id="popupId" type="text" placeholder="아이디를 입력하세요">
+      <label><input type="radio" name="popupScope" value="all">전체</label>
+      <button id="popupSendBtn" class="SCbtn SCpopup-send-btn">전송</button>
+    </div>
+    <textarea id="popupMsg" placeholder="팝업 메시지를 입력하세요..."></textarea>
+  </div>
+
+  <!-- 배너 등록 -->
+  <div class="SCsection SCbanner-section">
+    <div class="SCsection-header"><span class="icon">🏷️</span>배너 등록</div>
+    <div class="SCbanner-list">
+      <div class="SCbanner-item" data-index="0">
+        <div class="SCbanner-placeholder">
+          <div class="SCbanner-label">1</div>
+          <div class="SCbanner-preview"></div>
+        </div>
+        <div class="SCbanner-controls">
+          <input type="file" accept="image/*" class="SCbanner-input">
+          <button type="button" class="SCbtn SCbanner-remove-btn">삭제</button>
+        </div>
+      </div>
+      <div class="SCbanner-item" data-index="1">
+        <div class="SCbanner-placeholder">
+          <div class="SCbanner-label">2</div>
+          <div class="SCbanner-preview"></div>
+        </div>
+        <div class="SCbanner-controls">
+          <input type="file" accept="image/*" class="SCbanner-input">
+          <button type="button" class="SCbtn SCbanner-remove-btn">삭제</button>
+        </div>
+      </div>
+      <div class="SCbanner-item" data-index="2">
+        <div class="SCbanner-placeholder">
+          <div class="SCbanner-label">3</div>
+          <div class="SCbanner-preview"></div>
+        </div>
+        <div class="SCbanner-controls">
+          <input type="file" accept="image/*" class="SCbanner-input">
+          <button type="button" class="SCbtn SCbanner-remove-btn">삭제</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 챗봇 답 수정 -->
+  <div class="SCsection SCchatbot-section">
+    <div class="SCsection-header"><span class="icon">🤖</span>챗봇 답 수정</div>
+    <div class="SCchatbot-controls">
+      <label for="chatbotTemplate">템플릿</label>
+      <select id="chatbotTemplate">
+        <option value="">선택하세요</option>
+        <option value="안녕하세요! 무엇을 도와드릴까요?">인사말</option>
+        <option value="아이디/비밀번호 찾기 안내입니다.">id/pw찾기</option>
+        <option value="제휴업체 문의는 support@example.com 으로 연락주세요.">제휴업체 문의</option>
+        <option value="건의사항을 보내주시면 검토 후 답변드리겠습니다.">건의하기</option>
+      </select>
+      <button id="chatbotApplyBtn" class="SCbtn SCchatbot-apply-btn">수정</button>
+    </div>
+    <textarea id="chatbotAnswer" placeholder="챗봇 답변을 수정하세요..."></textarea>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 공지 전송
+      document.getElementById('noticeSendBtn').addEventListener('click', () => {
+        const idInput = document.getElementById('noticeId');
+        const id = idInput.value.trim();
+        const all = document.querySelector('input[name="noticeScope"][value="all"]').checked;
+        if (all) {
+          alert('전체에게 공지를 전송했습니다.');
+        } else if (id) {
+          alert(`아이디 "${id}"에게 공지를 전송했습니다.`);
+        } else {
+          alert('아이디를 입력하거나 전체를 선택해주세요.');
+          return;
+        }
+        idInput.value = '';
+      });
+
+      // 팝업 전송
+      document.getElementById('popupSendBtn').addEventListener('click', () => {
+        const idInput = document.getElementById('popupId');
+        const id = idInput.value.trim();
+        const all = document.querySelector('input[name="popupScope"][value="all"]').checked;
+        if (all) {
+          alert('전체에게 팝업을 설정했습니다.');
+        } else if (id) {
+          alert(`아이디 "${id}"에게 팝업을 설정했습니다.`);
+        } else {
+          alert('아이디를 입력하거나 전체를 선택해주세요.');
+          return;
+        }
+        idInput.value = '';
+      });
+
+      // 배너 업로드 & 삭제
+      document.querySelectorAll('.SCbanner-item').forEach(item => {
+        const input = item.querySelector('.SCbanner-input');
+        const preview = item.querySelector('.SCbanner-preview');
+        const removeBtn = item.querySelector('.SCbanner-remove-btn');
+        input.addEventListener('change', () => {
+          const file = input.files[0];
+          if (!file) return;
+          if (!file.type.startsWith('image/')) {
+            alert('이미지 파일만 업로드할 수 있습니다.');
+            input.value = '';
+            return;
+          }
+          const reader = new FileReader();
+          reader.onload = e => {
+            preview.innerHTML = '';
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            preview.appendChild(img);
+          };
+          reader.readAsDataURL(file);
+        });
+        removeBtn.addEventListener('click', () => {
+          input.value = '';
+          preview.innerHTML = '';
+        });
+      });
+
+      // 챗봇 템플릿 선택 → textarea 채우기
+      document.getElementById('chatbotTemplate').addEventListener('change', function() {
+        document.getElementById('chatbotAnswer').value = this.value;
+      });
+      // 챗봇 답 수정 버튼
+      document.getElementById('chatbotApplyBtn').addEventListener('click', () => {
+        const ans = document.getElementById('chatbotAnswer').value.trim();
+        if (ans) {
+          alert('챗봇 답변이 수정되었습니다.');
+        } else {
+          alert('내용을 입력해주세요.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

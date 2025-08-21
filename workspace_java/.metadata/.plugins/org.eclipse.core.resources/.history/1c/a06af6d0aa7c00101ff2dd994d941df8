@@ -1,0 +1,104 @@
+package todo.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Date;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import todo.DTO.TodoDTO;
+import todo.service.TodoService;
+
+@WebServlet("/todo")
+public class Todocontroller extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("todo의 doGet실행");
+		
+		// 한글 깨짐 방지
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		
+		//목록 가져오기
+		TodoService todoService = new TodoService();
+		List<TodoDTO> list = todoService.getList();
+		
+		PrintWriter out = response.getWriter();
+		out.println("<a href='register.html'><input type='button' value='추가'></a>");
+		out.println("<table border=1>");
+		
+		//목록 보여주기 JSP에서 해야할일
+		for(int i=0; i<list.size(); i++) {
+			System.out.println(list.get(i));
+			TodoDTO dto = list.get(i);
+			out.println("<tr>");
+			out.println("	<td>"+dto.getTno() + "</td>");
+			out.println("	<td>"+dto.getTitle() + "</td>");
+			out.println("	<td>"+dto.getDuedate() + "</td>");
+			out.println("	<td>"+dto.getFinished() + "</td>");
+			out.println("	<td>");
+			out.println("		<form method='post' action='todo'>");
+			out.println("			<input type='hidden' name='tno' value='"+dto.getTno()+"'>");
+			out.println("			<input type='hidden' name='command' value='del'>");
+			out.println("			<input type='submit' value='삭제'>");
+			out.println("		</form>");
+			out.println("	</td>");
+			out.println("</tr>");
+		}
+		out.println("</table>");
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("todo의 doPost실행");
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+
+		TodoDTO todoDTO = new TodoDTO(); 
+		
+		String command = request.getParameter("command");
+//		if(command !=null && command.equals("del")) 아래와 같은 코드
+		if("del".equals(command)) {
+			//delete
+			String str_tno = request.getParameter("tno");
+			try {
+				int tno = Integer.parseInt(str_tno);
+				todoDTO.setTno(tno);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else {
+			
+			//insert
+			TodoService todoService = new TodoService();
+			String title = request.getParameter("title");
+			String duedate = request.getParameter("duedate");
+			
+			todoDTO.setTitle(title);
+			
+			Date date_duedate = Date.valueOf(duedate);
+			todoDTO.setDuedate(date_duedate);
+			
+			
+			System.out.println(todoDTO);
+			
+			int result = todoService.addTodo(todoDTO);
+			
+			if(result == -1) {
+				response.getWriter().println("<script>");
+				response.getWriter().println("alert('추가 실패')");
+				response.getWriter().println("</script>");
+			}else {
+				response.sendRedirect("todo");
+			}
+		}
+		
+	}
+
+}

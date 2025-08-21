@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    const temp = -3;
+    if(temp){
+        document.write('참');
+    }else{
+        document.write('거짓');
+    }
+    
+    //js에서의 참이란 거짓 아닌것 즉, !거짓
+    //js에서의 거짓: false, 0, null, undefined, NaN, ""(비어있는 문자)
+    
+    console.log('----------배열 배우고 옴 ㅋㅋ')
+
+    let arr = [10,20,30];
+    arr[10] = 100;
+    arr['주소'] = '안성시';//length에 영향 없음(유사 배열)
+    console.log('arr.length : ',arr.length);
+
+    console.log('arr : ',arr);
+   
+    //for in
+    //in 앞의 변수에 현재의 index를 저장
+    for(let index in arr){
+        console.log('index : ',index);
+        console.log('index : ',arr[index]);
+    }
+
+    
+
+    //for of
+    //of 앞의 변수에 현재의 값을 저장
+    //index '주소'처럼 숫자가 아닌것은 못가져온다
+    //현재 몇번째 돌고 있는지 알 수 없다!
+    let i = 0;
+    for(let obj of arr){
+        console.log('obj : ',obj, i++);
+    }
+
+    let array = [];
+
+    if(array[4] == undefined){
+        console.log('array[4] : ', array[4]);
+    }
+
+    // array[4] += 'abc';
+    // console.log(array[4]);
+
+    //주사위 2개 합별 조합
+
+    let ar = [];
+    ar[0]=[ "[1,3]", "[3,1]" ];
+    console.log('ar0: ', typeof ar[0]);
+    
+        for(let i = 1; i<=6; i++){
+            for(let j=1; j<=6; j++){
+                if(ar[i+j] == undefined){
+                    ar[i+j] = `[${i}, ${j}]`;
+                }else{
+                    ar[i+j] += `[${i}, ${j}]`; 
+                }
+            }
+        }
+        
+
+    for(let a = 2; a<=12; a++){
+        console.log(a +' : '+ar[a]);
+    }
+    console.log('ar[5].length:', ar[5].length);
+    console.log('ar[13] : ', ar[13]);
+
+    let cc = [];
+    function aa(a ,x, y, z){
+       cc[a]= [x, y, z];
+    }
+    aa(0 , "롤로노아 동현", "31살", "80kg");
+    aa(2, 3, 76, 1);
+    console.log(cc[0]);
+    console.log(cc[2]);
+
+
+    let foodM = [];
+    function food(x, y, z, t){
+        foodM[x]=[y, z, t];
+    }
+    food(0, "Apple", 3000, 5);
+    food(1, "Orange", 5000, 3);
+    food(2, "Strawberry", 3000, 7);
+    for(let a=0; a<=2;a++){
+        console.log(foodM[a]);
+    }
+
+    //함수 배우고 돌아왔다;
+    console.log("함수배움-------------------------------------");
+
+    const arr3 = ["a1", "b1", "c1", "d1"];
+
+    //forEach :  각 항목별로 함수를 실행할 수 있음
+    // 함수의 전달 인자 : 현재 값, 현재 index, 전체 배열
+    //return이 없는 함수!
+    arr3.forEach(function(element, index, array){
+        console.log('element : ', element); //값
+        console.log('index : ', index); //index
+        console.log('array : ', array); //원본 배열
+        // console.log('d : ', d);
+    })
+
+    let movies = ["noise", "f1 the movie", "kaaaaa", "my pet dragon", "alio", "burned love"];
+    
+    //map :  각 항목별로 함수를 실행해서 return값으로 새로운 배열을 돌려줌
+    // 함수의 전달 인자 : 현재 값, 현재 index, 전체 배열
+    console.log('------------');
+    let len3 = movies.map(function(el, index, arr){
+        console.log('el : ', el);
+        console.log('index : ', index);
+        console.log('arr : ', arr);
+
+        console.log('element.length : ', el.length);
+        console.log('--------')
+
+        return el.length;
+    });
+
+    // let len2 = movies.map(function(el){
+    //     return el.length
+    // })
+
+    let len2 = movies.map( el => el.length );
+    
+    console.log(len3);
+
+    let len = movies.map( el => el.length );
+    console.log('len : ', len);
+
+
+    //필터!
+    let filtered = movies.filter( function(element, index, array)
+        {
+        console.log('element : ', element); 
+        console.log('index : ', index); 
+        console.log('array : ', array); 
+        
+        let len = element.length;
+        if(len > 7){
+            return true;
+        }else{
+            return false;
+        }
+
+        //return element.length > 4;
+        });
+
+    let filtered2 = movies.filter(e => e.length > 7);
+    console.log('filtered : ', filtered);
+    console.log('filtered2 : ', filtered2);
+
+    
+    
+
+
+
+   
+    
+    
+</script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,12 @@
+package quiz.class1;
+
+public class JaewonService {
+
+	// 머리속
+	String getInfo(String question) {
+		return null;
+	}
+	// gpt
+	// 노션
+	
+}

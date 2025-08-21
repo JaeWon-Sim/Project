@@ -1,0 +1,12 @@
+package sec02.exam01.driver;
+
+public class DriverExam {
+	public static void main(String[] args) {
+		Tico tico = new Tico();
+		
+		Driver driver = new Driver();
+		
+		driver.driveTico(tico);
+	}
+
+}

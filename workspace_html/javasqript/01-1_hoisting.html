@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // d = 30; 22줄에서 전역변수 선언됨 같은 내용이다!                  6
+        // 아무것도 안쓴 선언은 전역변수 선언(scope)                        6
+        //최 상 단 으로 hoisting 된다!                                   6
+        
+        //not defined;
+        // console.log("a : ", a); 에러남                               1
+        
+        // console.log(f); 
+        let f = 5;
+
+
+        function test(){                                               2   
+            var b; //hoisting!!!!!!!                            
+                   // var는 함수 최상단으로 호이스팅!!!
+
+            if(true){
+                // var b = 10; hoisting                                3
+                b = 10;                                                4
+                let c = 20; //java의 지역변수                           5
+
+                d = 30;//전역 변수로 선언됨!!! 조심!!                       6
+            }
+            console.log('b : ',b);                                      5
+            // console.log('c : ',c); //선언된 적이 없다                  5
+            console.log('d : ',d);                                      6
+        }
+        test();
+        
+        // console.log('b : ',b); //var b는 test 함수 까지 hoisting;
+        console.log('d : ',d);// 함수 밖에서도 hoisting;                    6
+        //일등 객체 first class object
+        //변수는 어떤 것도 담을 수 있다! 심지어 함수도 담을 수 있음!
+        //전달 인자로 함수도 전달 ㅆㄱㄴ!
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,35 @@
+package sec01.exam01;
+
+public class Child extends Parent {
+	
+	void printName() {
+		System.out.println("Child의 printName 실행");
+		System.out.println("name :"+name);
+		System.out.println("this.name :"+this.name);
+		
+		String pName = getName();
+		System.out.println("pName : "+ pName);
+	}
+	
+	//전달인자가 필드를 가리는 현상 = shadow;
+	void setName(String name) {
+		this.name = name;
+	}
+	
+	//부모의 필드를 가리는 현상
+	//overshadow
+	String name = "child의 name";
+	
+	
+	Child(){
+//		this(); super와 this 모드 첫줄에 적어야해서 같이 사용 불가!
+//		super();// 부모의 생성자를 호출 
+				//지금은 생략 가능!
+		super(1);//첫줄에 적어야 한다!
+		// 전달인자 맞춰줘야함!
+		System.out.println("Child 생성자");
+	}
+	Child(int a){
+		super(1);
+	}
+}

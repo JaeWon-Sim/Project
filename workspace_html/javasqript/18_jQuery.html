@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(()=>{
+            bind();
+            init();
+        })
+        function init(){
+
+            const list_h1 = $('h1');
+            console.log( list_h1 );   //jQuery 배열 객체;
+            console.log( list_h1[0] ); //순수한 자바스크립트;
+
+            console.log( $('#human') );// 없으면 0개짜리 배열
+
+            // querySelectorAll에 해당됨 
+            // text = innerText
+            $('h1').text('ㅋㅋ');
+            
+            //html = innerHTML
+            $('h1').html('<a href="javascript:void(0)"> a tag</a>');
+
+            console.log( $('#parent') );
+
+            //클래스 추가
+            $('#parent').addClass('c1');
+            $('#parent').addClass('c2 c3');
+
+            //클래스 제거
+            $('#parent').removeClass('c1 c2');
+
+            //토글 효과
+            $('#parent').toggleClass('c3');
+
+            //클래스가 있는지 확인~!
+            console.log($('#parent').hasClass('c2'));
+
+            // 전달인자가 하나면 getAttribute 속성 값 가져오기
+            let human = $('#chk').attr('data-human');
+            console.log(human);
+
+            // 전달인자가 두개면 setAttribute
+            $('#chk').attr('data-human', '123');
+            $('#chk').attr('data-game', '윷놀이');
+
+
+            //data()  : data-속성명에서 속성명만 사용할 수 있다
+            console.log($('#chk').data('game'));
+            
+            // 개발자 도구에서 안보이는 속성 추가
+            $('#chk').data('dinner', '닭찌찌');
+            console.log($('#chk').data('dinner'));
+
+            // 속성 삭제
+            $('#chk').removeAttr('data-game');
+
+            // $()안에 html 태그를 넣으면
+            // createElement 해줌
+            let child2 = $('<div class="child2">자식2</div>'); 
+            console.log(child2[0]);
+
+            // 자식의 마지막에 요소 추가
+            $('#parent').append(child2);
+            
+            $('#parent').prepend('<div class="child3">자식3</div>');
+
+            $('#parent').after('<div class="parant2">parent2</div>');
+            $('#parent').before('<div class="parant3">parent3</div>');
+            
+
+            // 내용 비우기
+            // $('#parent')[0].innerHTML="";
+            // $('#parent').html('');
+            $('#parent').empty();
+
+            // 태그 삭제;
+            $('#parent').remove();
+
+            //DOM에 적용된 실제 CSS 값
+            $('#input1').css('backgroundColor', 'yellow');
+            console.log($('#input1').css('backgroundColor'));
+            console.log($('#input1').css('fontSize'));
+            console.log($('#input1').css('width'));
+            console.log($('#input1').width());
+            // 너비를 500으로 지정
+            $('#input1').width(500);
+
+        }
+
+
+        function bind(){
+
+            //document.querySelector('click', function(){})
+            // $('#btn1').click(function(){});
+            $('#btn1').on('click',function(event){
+                console.log(this === event.currentTarget);
+
+                // $('#input1')[0].value;
+                // value값 바꾸기
+                $('#input1').val('출발');
+                // value값 가져오기;
+                console.log($('#input1').val());
+
+                // check 여부 확인
+                console.log($('#chk').prop('checked'))
+                // check 상태 바꾸기
+                $('#chk').prop('checked', true);
+
+
+
+            })
+            
+            $('.btn').on('click', function(event){
+                console.log('버튼???');
+                console.log(event.target);
+                console.log(this);
+            })
+
+            $('.btn').off('click').on('click', function(){
+                console.log('버튼!');
+                bind();
+            });
+            $('.btn').off('click')
+            //이벤트 종류.식별자로 bind를 하고
+            $('.btn').on('click.ajax', function(){
+                console.log('버튼.ajax');
+            });
+            //이벤트 종류.식별자로 특정 이벤트만 unbind 할 수 있다
+            $('.btn').off('click.ajax');
+
+            $('#parent10').on('click', function(event){
+                // event.stopPropagation()
+                console.log('this', this);
+                console.log('event.target', event.target);
+
+                //자식중에서 찾기
+                $('#parent10').find('child10')
+                //부모로 올라가기
+                $('#parent10').parent();
+
+            })
+            
+            $('.child10').on('click', function(event){
+                // event.stopPropagation()
+                return false;
+            })
+
+            $('#btn3').on('click', function(){
+                // $('.child10').fadeToggle();
+                // $('.child10').hide();   // display: none 적용
+                // $('.child10').show();   // display 삭제
+                // $('.child10').slideToggle();
+                $('.child10').animate({
+                    width: '300px',
+                    height: '+=150px'
+                })
+            })
+
+            
+        }
+    </script>
+</head>
+<body>
+    <h1>심재원</h1>
+    <h1>김동현</h1>
+    <h1>하용군</h1>
+
+    <div id="parent">
+        부모
+        <div class="child">자식</div>
+    </div>
+
+    <input type="checkbox" id="chk" class="cd1" value="1" data-human="값" checked="checked"><br>
+    <input type="text" id="input1">
+    <input type="button" id="btn1" class="ajax" value="버튼1">
+    <input type="button" id="btn2" class="btn" value="버튼1">
+    <input type="button" id="btn3" class="btn3" value="버튼3">
+
+    <div id="parent10">
+        부모11
+        <div class="child10" style="border:1px solid black; height:100px; background: greenyellow;">자식11</div>
+    </div>
+</body>
+</html>

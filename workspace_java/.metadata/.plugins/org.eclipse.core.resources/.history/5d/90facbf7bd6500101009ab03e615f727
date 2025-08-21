@@ -1,0 +1,25 @@
+package quiz.cafe;
+
+public class Compose extends Cafe{
+
+	Menu [] menu = new Menu[2];
+	
+	Compose(){
+		Cafe c = new Cafe();
+		c.cafe = "compose";
+		setMenu();
+	}
+	
+	void setMenu() {
+		menu[0] = new Menu();
+		menu[0].coffee = "아이스 아메리카노";
+		menu[0].price = 3000;
+		
+		menu[1] = new Menu();
+		menu[1].coffee = "라떼";
+		menu[1].price = 4000;
+		
+	}
+	
+	
+}

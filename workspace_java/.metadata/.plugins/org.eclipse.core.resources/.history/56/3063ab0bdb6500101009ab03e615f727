@@ -1,0 +1,16 @@
+package quiz.cafe.teacer;
+
+public class Compose extends Cafe{
+	
+	Compose(){
+		super("Àç¿øºôµù", "compose");
+		menumap.put("¾Æ¾Æ", 3000);
+		menumap.put("¶ó¶§", 4000);
+	}
+	
+	void serve(String nick) {
+		System.out.println(nick+"´Ô~");
+		super.serve();
+	}
+
+}

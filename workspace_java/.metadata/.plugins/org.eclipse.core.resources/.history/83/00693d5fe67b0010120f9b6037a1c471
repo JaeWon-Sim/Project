@@ -1,0 +1,13 @@
+package todo.DTO;
+
+import java.sql.Date;
+
+public class TodoDTO {
+	
+	private int tno;	 	//할일 고유 번호
+	private String title;	//할일
+	private Date duedate;	//마감일
+	private int finished;	//완료 여부
+	
+	
+}

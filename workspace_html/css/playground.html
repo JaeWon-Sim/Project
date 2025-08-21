@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body::selection{
+    margin:0 auto;
+    color:white;
+    background-color: rgb(68, 190, 31);
+}
+.main{
+    z-index: 9;
+    background-color: white;
+    position:sticky;
+    top:0px;
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+    border-bottom :5px solid rgb(68, 190, 31);
+}
+.main2{
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+.sub{
+    display:inline-block;
+    border-right:1px solid gray;
+    margin:20px;
+        
+}
+.b, .c, .d{
+   width:150px;
+}
+.d img{
+    width:10%;
+}
+
+.a img{
+    margin-top: -1px;
+    width:100%;
+}
+.a{
+    width:150px;
+    border: none;
+}
+.menu{
+    padding-left:40px;
+    width:100%;
+    background-color: rgb(70, 70, 70);
+    color:white;
+    height:55px;
+    margin:0px;
+    vertical-align: middle;
+    height: 100%;
+    font-size: 16px;
+    margin:0 auto;
+}
+.menu div, ul{
+    display: inline-block;
+    border-right: 1px solid aliceblue;
+    padding:15px;
+}
+.e{
+    border-left: 1px solid aliceblue;
+}
+.bgp img{
+    height:700px;
+    width:100%;
+}
+.bgp{
+    color:white;
+    width:100%;
+    position:relative;
+    z-index: 0;
+}
+.bg{
+    padding:10px;
+    position:relative;
+    top:-380px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    background-color : black;
+    color:white;
+    border-radius: 50%;
+}
+button:hover{
+    background-color: white;
+    color:black;
+    border-radius: 50%;
+}
+.button{
+    position: relative;
+    top:-300px;
+    left:100px;
+    border: 3px solid green;
+    padding:3px;
+    width:125px;
+    background-color: black;
+}
+.button:hover{
+    color:green;
+}
+.tt{
+    width:100%;
+    display:flex;
+}
+.t{
+    width:75%;
+    border-bottom : 4px solid rgb(96, 206, 96);
+}
+.tt div h1{
+    margin:0px;
+}
+
+.fv{
+    margin-top:5px;
+    width:100%;
+    display:flex;
+    justify-content: space-around;
+}
+.fv div{
+    width:25%;
+}
+
+.fv div div{
+    width:100%;
+    text-align: center;
+}
+.mt{
+    width:100%;
+    text-align: center;
+}
+.mt{
+    display:flex;
+    justify-content: space-around;
+}
+.mt div{
+    width:150px;
+}
+.mt img{
+    width:100%;
+}
+.s:hover{
+    background-color: black;
+    color:green;
+}
+.fv div:hover{
+    transform: scale(1.01);
+    text-decoration: underline green;
+}
+.mt div:hover{
+    transform: scale(1.01);
+    text-decoration: underline green;
+}
+
+.dd {
+    position: relative;
+}
+
+.dmenu {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    display: none;
+    background-color: rgb(70, 70, 70);
+    z-index: 999;
+    width: 200px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.dmenu li {
+  padding: 10px;
+  border-top: 1px solid #888;
+  color: white;
+}
+
+.dd:hover .dmenu {
+  display: block;
+}
+.dd li:hover{
+    background-color: white;
+    text-decoration: underline green;
+    color:black;
+}
+
+.op{
+    margin-top:5px;
+    width:100%;
+    display:flex;
+    justify-content: space-around;
+}
+.op div{
+    width:25%;
+}
+
+.op div div{
+    width:100%;
+    text-align: center;
+}
+.hr{
+    border:1px solid black;
+}
+.home{
+    padding:10px;
+}
+.bottom{
+    margin-top:5px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    background-color: black;
+    padding-bottom:30px;
+    border:1px solid white;
+}
+.bottom div{
+    width:25%;
+    
+    color:white;
+}
+
+.bottom div div{
+    width:100%;
+    color:#888
+}
+.bottom div div:hover{
+    color:rgb(63, 241, 63);
+}
+.bbottom{
+    background-color: black;
+    color:white;
+    display:flex;
+    justify-content:center;
+    padding:40px;
+    border:1px solid white;
+}
+.bbottom div{
+    margin:10px;
+}
+.z:hover{
+    color:rgb(63, 241, 63);
+}
+
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="sub a"><img src="https://www.kawasaki.eu/en/_jcr_content/root/header/logo.coreimg.png/1711372020524/new-vi-logo.png"></div>
+        <div class="main2">
+        <div class="sub b">Find a dealer</div>
+        <div class="sub c dd">
+            Europe | EN
+            <ul class="dmenu">
+                <li>
+                    Greece
+                    English
+                    Ελληνικά
+                </li>
+                <li>
+                    UK
+                    English
+                </li>
+                <li>
+                    Poland
+                    Polish
+                </li>
+                <li>
+                    Korean
+                    한국어
+                </li>
+                <li>
+                    일본어
+                    日本語
+                </li>
+            </ul>
+            </div>
+        <div class="sub d"><img src="https://cdn-icons-png.flaticon.com/512/71/71403.png"></div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="s e">MOTORCYCLES</div>
+        <div class="s">OTHER VEHICLES</div>
+        <div class="s">PARTS & ACCESSORIES</div>
+        <div class="s">CLOTHING & MERCHANDISE</div>
+        <div class="s dd">
+            SERVICE
+            <ul class="dmenu">
+                <li>Kawasaki Care</li>
+                <li>Safety Initiatives</li>
+                <li>Useful Links</li>
+                <li>Spare Parts catalog</li>
+                <li>Legal</li>
+                <li>Contact us</li>
+            </ul>
+        </div>
+        <div class="s">RACING</div>
+        <div class="s">NEWS</div>
+    </div>
+
+    <div class="bgp">
+        <img class="bg-image" src="https://www.kawasaki.eu/en/_jcr_content/root/responsivecontainergrid/stage-carousel/image_slide_965424560.coreimg.jpeg/1751976760309/my26-kawasaki-kx-250-ew-desktop-3840-2160.jpeg">
+        <div class="button">DISCOVER MORE</div>
+        <div class="bg">
+            <div>
+                <button class="prev-btn"><</button>
+            </div>
+            <div>
+                <button class="next-btn">></button>
+            </div>
+        </div>
+   </div>
+   
+   
+   <div class="tt">
+        <div>    
+        <h1>Featured Vehicles</h1>
+        </div>
+        <div  class="t"></div>
+   </div>
+   
+   <div class="fv">
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/24MY_Ninja%207%20Hybrid_SL1_STU%20(1).jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png">
+        <div><h4>New 2024</h4></div>
+        <div><h3>Ninja 7 Hybrid | 2024</h3></div>
+    </div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/24MY_Z%207%20Hybrid%20SE_SL1_STU%20(1).jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png">
+        <div><h4>New 2024</h4></div>
+        <div><h3>Z7 Hybrid | 2024</h3></div>
+    </div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/24MY_Z%20e-1_SL1_STU%20(1).jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png">
+        <div><h4>New 2024</h4></div>
+        <div><h3>Z e-1 | 2024</h3></div>
+    </div>
+   </div>
+
+   <div class="fv">
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/25MY_Ninja%201000SX%20SE_GN1_STU%20(1).jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png">
+        <div><h4>New 2025</h4></div>
+        <div><h3>Ninja 1100SX SE | 2025</h3></div>
+    </div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/25MY_Versys%201100%20SE_GY2_STU%20(1).jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png">
+        <div><h4>New 2025</h4></div>
+        <div><h3>Versys 1100 SE | 2025</h3></div>
+    </div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/25BJ230B_A141GY1DRF3CG_A.jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png">
+        <div><h4>New 2025</h4></div>
+        <div><h3>Meguro S1 | 2025</h3></div>
+    </div>
+   </div>
+   <div class="tt">
+        <div>    
+        <h1>Motorcycles</h1>
+        </div>
+        <div  class="t"></div>
+   </div>
+   <div class="mt">
+    <div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/24MY_Ninja%207%20Hybrid_SL1_STU%20(1).jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png"></div>
+    <div><h3>EV / HEV</h3></div>
+    </div>
+    <div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/23MY_Ninja%20H2R_GY3_STU%20(2).jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png"></div>
+    <div><h3>Hypersport</h3></div>
+    </div>
+    <div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/25MY_Ninja%20ZX-10RR_GY2_STU%20(1).jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png"></div>
+    <div><h3>Supersport & Sport</h3></div>
+    </div>
+    <div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/23MY_Z%20H2%20SE_GY2_STU%20(2).jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png"></div>
+    <div><h3>Supernaked</h3></div>
+    </div>
+    <div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/25MY_Ninja%20H2%20SX%20SE_GN1_STU%20(1).jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png"></div>
+    <div><h3>Sport Tourer</h3></div>
+    </div>
+    <div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/25MY_Versys%201100%20SE_GY2_STU%20(1).jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png"></div>
+    <div><h3>Adventure Tourer</h3></div>
+    </div>
+    </div>
+
+    <div class="mt">
+    <div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/25MY_Z900RS%20SE_BK2_STU%20(1).jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png"></div>
+    <div><h3>Modern Classic</h3></div>
+    </div>
+    <div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/25BJ230B_A141GY1DRF3CG_A.jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png"></div>
+    <div><h3>Classic</h3></div>
+    </div>
+    <div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/25MY_Eliminator%20500%20SE_GY1_STU%20(1).jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png"></div>
+    <div><h3>Urban Cruiser</h3></div>
+    </div>
+    <div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/24ER500F_44SRD1DRF3CG_A.jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png"></div>
+    <div><h3>A2 Bikes</h3></div>
+    </div>
+    <div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/24MY_KX450_GN1_STU%20(1).jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png"></div>
+    <div><h3>Motocross</h3></div>
+    </div>
+    <div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/24MY_KX450X_GN1_STU%20(1).jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png"></div>
+    <div><h3>Enduro</h3></div>
+    </div>
+    </div>
+
+    <div class="tt">
+        <div>    
+        <h1>Other Products</h1>
+        </div>
+        <div  class="t"></div>
+   </div>
+
+    <div class="fv">
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/25KAF1000L_251RD1DLF3CG_A.jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png">
+        <div><h3>Mule</h3></div>
+        
+    </div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/24MY_BRUTE%20FORCE%20750_BU1_STU%20(3).jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png">
+        <div><h3>ATV</h3></div>
+        
+    </div>
+    <div><img src="https://www.kawasaki.eu/content/dam/europe/master/thumbnails/22MY_ULTRA%20310LX_BK1_STU%20(1).jpg/_jcr_content/renditions/cq5dam.thumbnail.320.320.png">
+        <div><h3>Jet Ski®</h3></div>
+        
+    </div>
+   </div>
+
+   <div class="hr"></div>
+   <div class="home">Home</div>
+   <div class="bottom">
+        <div><h3>FOLLOW US ON</h3></div>
+        <div><h3>SERVICE & WARRANTY</h3>
+            <div>Contact us</div>
+            <div>Kawasaki Care</div>
+            <div>Useful Links</div>
+            <div>Safety Initiatives</div>
+            <div>Legal</div>
+            <div>International Sites</div>
+        </div>
+        <div><h3>ABOUT KAWASAKI</h3>
+            <div>Company</div>
+            <div>Rideology</div>
+            <div>Heritage</div>
+            <div>Press</div>
+            <div>History</div>
+        </div>
+   </div>
+
+        <div class="bbottom">
+            <div>© 2023 </div>
+            <div class="z">KME Privacy Policy </div>
+            <div class="z">Legal Notice </div>
+            <div class="z">Cookie Notice​</div>
+        </div>
+
+<script>
+        const images = [
+            "https://www.kawasaki.eu/en/_jcr_content/root/responsivecontainergrid/stage-carousel/image_slide_1997676574.coreimg.jpeg/1728302540392/meguros1-desktop-1020x960.jpeg",
+            "https://www.kawasaki.eu/en/_jcr_content/root/responsivecontainergrid/stage-carousel/image_slide_965424560.coreimg.jpeg/1751976760309/my26-kawasaki-kx-250-ew-desktop-3840-2160.jpeg",
+            "https://www.kawasaki.eu/en/_jcr_content/root/responsivecontainergrid/stage-carousel/item_1727788926307.coreimg.jpeg/1727799925185/25my-ninja-1100sx-ew-desktop.jpeg"
+        ];
+
+        let current = 0;
+        const imgElement = document.querySelector(".bg-image");
+
+        document.querySelector(".next-btn").addEventListener("click", () => {
+            current = (current + 1) % images.length;
+            imgElement.src = images[current];
+        });
+
+        document.querySelector(".prev-btn").addEventListener("click", () => {
+            current = (current - 1 + images.length) % images.length;
+            imgElement.src = images[current];
+        });
+
+    function changeImage(index) {
+    imgElement.src = images[index];
+  }
+
+  
+  document.querySelector(".next-btn").addEventListener("click", () => {
+    current = (current + 1) % images.length;
+    changeImage(current);
+  });
+
+  document.querySelector(".prev-btn").addEventListener("click", () => {
+    current = (current - 1 + images.length) % images.length;
+    changeImage(current);
+  });
+
+ 
+  setInterval(() => {
+    current = (current + 1) % images.length;
+    changeImage(current);
+  }, 3000); 
+</script>
+
+
+
+    
+
+    
+</body>
+</html>

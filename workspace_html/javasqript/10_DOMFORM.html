@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="id" value="before"><br>
+    <input type="password" id="pw"><br>
+    <input type="date" id="date"><br>
+    <input type="radio" name="ai" value="1" checked="checked">chatGPT
+    <input type="radio" name="ai" value="2">gemini
+    <input type="radio" name="ai" value="3">bing
+    <input type="radio" name="ai" value="4">perplexity<br>
+
+    <input type="checkbox" class="room" value="1">aircon
+    <input type="checkbox" class="room" value="2">balcony
+    <input type="checkbox" class="room" value="3">wife<br>
+
+    <select id="select">
+        <option value="1">JS</option>
+        <option value="2" selected="selected">JAVA</option>
+        <option value="3">SQL</option>
+        <option value="4">CSS</option>
+    </select><br><br><br>
+
+    <textarea id="textarea">before</textarea><br><br><br>
+    <div id="view"></div>
+
+    <script>
+        setTimeout(function (){
+            const text = document.getElementById("id");
+            console.log(text.value);
+            text.value=333;
+            
+            const pw = document.getElementById("pw");
+            console.log(pw.value);
+            pw.value="빨리써라 hurry"
+
+            const date = document.getElementById("date");
+            console.log(date.value);
+            date.value='1996-03-12';
+            date.value = new Date().toISOString().split('T')[0];
+
+            let radio = document.querySelector('[name="ai"]:checked');
+            console.log(radio.value);
+
+            let radios = document.querySelectorAll('[name="ai"]');
+            radios[1].checked = true;
+            console.log(radio.value);
+
+            let checkbox = document.querySelectorAll('.room');
+            for(let i = 0; i<checkbox.length; i++){
+                console.log(checkbox[i].value, checkbox[i].checked)
+            }//전체 배열을 돌면서 전부 출력해줌!
+            checkbox[1].checked = true; 
+
+            let checkbox2 = document.querySelectorAll('.room:checked');
+            for(let i = 0; i<checkbox2.length; i++){
+                console.log(checkbox2[i].value, checkbox2[i].checked)
+            }//체크 된것만 가져옴!
+
+            const select = document.querySelector('#select');
+            console.log(select.value);
+            const option = document.querySelector('#select option:checked');
+            console.log(option, option.innerText);
+
+            select.value=3;
+
+            const textarea = document.querySelector('#textarea');
+            console.log(textarea.value);
+
+            // textarea.value="롤로노아 김동현 \n 징베 심재원";
+
+            const div = document.querySelector('#view');
+            div.innerText = textarea.value;
+            div.innerHTML = textarea.value.replace('\n', '<br>');
+            div.innerHTML = textarea.value.replace(/\n/g, '<br>');
+
+        }, 4000);
+
+        
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btn1{
+            width:50px;
+            height:50px;
+            background-color:blue;
+        }
+        #btn2{
+            width:50px;
+            height:50px;
+            background-color:red;
+        }
+        #btn3{
+            width:50px;
+            height:50px;
+            background-color:yellowgreen;
+        }
+        body {
+            height:200vh;
+        } 
+        #top{
+            position:fixed;
+            bottom:10px;
+            right:10px;
+        }
+        img{
+            position:absolute;
+            top:0px;
+            left:0px;
+            width:50px;
+            height:40px;
+        }
+    </style>
+    <script src ='./asset/12_event.js'></script>
+</head>
+<!-- <body onload="javascript:init()">  -->
+<body>
+    <div style="display:flex">
+        <div>
+        <button type="button" id="btn1"></button><br>
+        <button type="button" id="btn2"></button><br>
+        <button type="button" id="btn3" onClick="btnClick();"></button>
+            <div>
+                아이디 : <input type="text" id="id"><br>
+                비밀번호 : <input type="password" id="pw"><br>
+                <button type="button" id="login">로그인7</button>
+            </div>
+        </div>
+        <div id="console"></div>
+            
+    </div>
+    <div>
+        <button type="button" id="top">go to top</button>
+    </div>
+    <img id="game" src="https://www.e-wowmotors.com/attach_files/nive_erp_breezeup/thumb/600_/2024-01/ext_29447_019001001765.jpg">
+        
+
+</body>
+</html>

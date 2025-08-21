@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            height : 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="tag">글씨요~</div>
+    <div id="msg">glgl</div>
+
+    <table>
+        <tbody id="tbody2">
+        <!-- <tr>
+            <td>첫째칸</td>
+        </tr> -->
+        </tbody>
+    </table>
+    <hr><hr><hr><hr>
+    
+    <table>
+        <tbody id="tbody3">
+            <!-- <tr>
+                <td>제목 1</td>
+                <td>작성자 1</td>
+            </tr>
+            <tr>
+                <td>제목 2</td>
+                <td>작성자 2</td>
+            </tr> -->
+        </tbody>
+    </table>
+
+    <h1 id="h1">style test</h1>
+
+
+
+    <script>
+        
+        let div = document.createElement("div");
+        div.setAttribute('id', 'menu');
+        div.setAttribute('style', 'color: red; font-size: 1.3em;');
+        div.textContent = '메뉴';
+
+        const tag = document.querySelector('#tag');
+
+        //append: 마지막 자식 요소로 추가된다
+        //        글씨도 넣을 수 있고 DOM을 넣을 수 있다(tag는 text로 들어간다)
+        tag.append(div);
+        tag.append('div');
+        tag.append('<h1>div</h1>');
+        
+        let div2 = document.createElement("div");
+        div2.setAttribute('id', 'menu');
+        div2.setAttribute('style', 'color: red; font-size: 1.3em;');
+        div2.textContent = '메뉴2';
+        
+        // appendChid :  마지막 자식 요소로 추가된다
+                        // DOM만 넣을 수 있다(append와 차이점)
+        tag.appendChild(div2);
+
+        let div3 = document.createElement("div");
+        div3.setAttribute('id', 'menu');
+        div3.setAttribute('style', 'color: red; font-size: 1.3em;');
+        div3.textContent = '메뉴3';
+        // prepend : 제일 위로 올려줌!
+        tag.prepend(div3);
+
+        // before : 그전 형제 요소로 추가!
+        // after :  다음 형제 요소로 추가!
+        tag.before(div3);
+
+
+        const tr = document.createElement("tr");
+        const td = document.createElement("td");
+        td.innerHTML = "gogo";
+        tr.append(td);
+        document.querySelector('#tbody2').append(tr);
+
+        tr.innerHTML = '<td>gogo</td>';
+        document.querySelector('#tbody2').append(tr);
+
+        document.querySelector('#tbody2').innerHTML='<tr><td>gogo</td></tr>';
+
+        const row1 = ['제목 1', '작성자 1'];
+        const row2 = ['제목 1', '작성자 1'];
+        const row3 = ['제목 1', '작성자 1'];
+        const row4 = ['제목 1', '작성자 1'];
+        const row5 = ['제목 1', '작성자 1'];
+        const row  = [];
+        row.push(row1);
+        row.push(row2);
+        row.push(row3);
+        row.push(row4);
+        row.push(row5);
+
+        // <tr>
+        //     <td>제목 1</td>
+        //     <td>작성자 1</td>
+        // </tr>
+
+        const tbody3 = document.querySelector('#tbody3');
+        // for(let i = 0; i<row.length; i++){
+        //     const html =`<tr>
+        //                     <td>${row[i][0]}</td>
+        //                     <td>${row[i][1]}</td>
+        //                 </tr>`;
+        //     tbody3.innerHTML += html; 
+        // }
+
+        // let html = '';
+        // for(let i = 0; i<row.length; i++){
+        //     html +=`<tr>
+        //                     <td>${row[i][0]}</td>
+        //                     <td>${row[i][1]}</td>
+        //             </tr>`;
+        // }
+        // tbody3.innerHTML += html;
+
+        for(let i = 0; i<row.length; i++){
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                            <td>${row[i][0]}</td>
+                            <td>${row[i][1]}</td>
+                           `;
+            tbody3.append(tr);
+        }
+        
+        const h1 = document.getElementById('h1');
+        
+        const script = document.createElement('script')
+        script.innerHTML = 'alert(1)'
+        h1.after(script);
+
+        (
+            function a (){
+                console.log('정신차려라');
+            }
+        )() //실행의 ();
+
+        
+        h1.style.color = 'red';
+        
+        h1.style.height = '140px';
+        //CSS에서 -로 연결된 프로퍼티 명은 카멜케이스로 써야함;
+        //JS에서 선언된 값만 읽기 가능!
+        console.log('backgroundColor : ', h1.style.backgroundColor);
+        console.log('typeof height : ', typeof h1.style.height);
+        console.log('height : ', h1.style.height);
+        
+        h1.setAttribute('style', 'background-color: green');
+        h1.style.backgroundColor = "red";
+
+        //JS로 지정한 모든 스타일 덮어쓰기
+        h1.style.cssText = "font-size :40px, height:30px "
+
+        let w = window.getComputedStyle(h1, null).getPropertyValue('width');
+        console.log(h1.style.width);
+        console.log(w);
+
+    </script>
+    
+</body>
+</html>

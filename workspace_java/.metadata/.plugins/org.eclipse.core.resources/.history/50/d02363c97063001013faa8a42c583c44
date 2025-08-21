@@ -1,0 +1,18 @@
+package sec02.exam01;
+
+public class Cat extends Animal {
+
+	@Override
+	void eat () {
+		System.out.println("와구와구");
+	}
+	
+	void clean() {
+		System.out.println("배변 정리");
+	}
+	
+	void groomming() {
+		System.out.println("고양이 세수 합니다.");
+	}
+	
+}

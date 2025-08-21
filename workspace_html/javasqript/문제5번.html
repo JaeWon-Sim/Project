@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div style="font-size: 30px;">토핑
+    <span class="toping"><input type="checkbox" id="toping" value="3000">치즈추가</span>
+    <span class="toping"><input type="checkbox" id="toping" value="4000">버섯추가</span>
+    <span class="toping"><input type="checkbox" id="toping" value="1000">고기추가</span>
+    <span class="toping"><input type="checkbox" id="toping" value="2000">콜라추가</span>
+    </div>
+    <div style="font-size: 30px;">피자 사이즈
+        <span class="size"><input type="radio" id="size" name="size" value="22000" checked>대</span>
+        <span class="size"><input type="radio" id="size" name="size" value="15000">중</span>
+    </div>
+    <div class="t_toping">토핑</div>
+    <div class="t_size">피자사이즈</div>
+    <div class="t_price">합계금액</div>
+    <script>
+        const toping = document.querySelectorAll('.toping:checked');//토핑 체크박스
+        const size = document.querySelector('.size');               //사이즈 체크박스
+        const t_toping = document.querySelector('.t_toping');       //토핑 이름이랑 가격 넣을것!
+        const t_size = document.querySelector('.t_size');           //사이즈랑 가격 넣을것!
+        const t_price =document.querySelector('.t_price');          //총 가격 넣어주기!
+        
+        for(let i = 0; i<toping.length; i++){
+            const toping = document.querySelectorAll('.toping:checked');
+            let ttoping = 0;
+            ttoping += toping[i].value;
+            toping.parentElement 
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+package sec01.exam01;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+
+public class OracleDBCPExam {
+
+	public static void main(String[] args) {
+		
+		try {
+			
+			// JNDI 방식으로 context.xml에 있는 DB정보를 가져온다
+			Context ctx = new InitialContext();
+			ctx.lookup("java:/comp/env/jdbc/oracle");
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+	}
+
+}

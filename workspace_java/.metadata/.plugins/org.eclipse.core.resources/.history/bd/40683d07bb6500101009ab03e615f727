@@ -1,0 +1,39 @@
+package quiz.cafe;
+
+public class Cafe {
+	/* 필드
+	 * 가격, 메뉴
+	 * 가게이름
+	 * 비품
+	 * 건물 = null
+	 * 
+	 * 
+	 * 생성자
+	 * 건물명 설정, 직원 몇명고용 추후 수정 가능
+	 * 메뉴+가격 설정 추후 수정 가능
+	 * 
+	 * 메소드
+	 * 주문받기, 결제하기, 커피만들기, 
+	 * 서빙, 일마감, 설거지
+	 * */
+	
+	String cafe;//가게 이름
+	String[] menuList;
+	int[] priceList;
+	int emp;
+	
+	Cafe(){
+		set();
+	}
+	
+	void set () {
+		System.out.println("어서오세요~"+this.cafe+"입니다");
+	}
+	
+
+	
+	
+	
+	
+	
+}

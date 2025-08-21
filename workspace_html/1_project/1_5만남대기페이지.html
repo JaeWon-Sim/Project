@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>요청 진행중</title>
+ <link rel="stylesheet" href="1_5만남대기페이지.css">
+</head>
+
+<body class="MHHb">
+  <main class="MHHM">
+    <a href="">
+      <div class="MHHleft" title="협력업체 광고">
+        협력업체 광고
+      </div>
+    </a>
+
+    <div class="MHHcenter">
+      <h1>한끼온+<img></h1>
+      <h2>연결 되었습니다.</h2>
+
+      <span class="MHHOncenter">ON</span>
+      <div class="MHHloader"></div>
+      <div class="MHHAftMatch-contentsWrap">
+        <p class="MHHAftMatch-contents">약속시간 : <span>오후 7시 30분</span></p>
+        <p class="MHHAftMatch-contents">약속장소 : <span>안성시 당왕동 1196-23 이편한세상 그랑fl체 101동 3000호</span></p>
+        <p class="MHHAftMatch-contents">요청사항 : <span><!-- 도움요청페이지값 --></span></p>
+        <p class="MHHAftMatch-contents">불편사항 : <span><!-- 도움요청페이지값 --></span></p>
+      </div>
+      <div class="MHHbuttons">
+        <button id="MHHopenChatBtn">1:1 대화하기</button>
+        <button>만났어요!</button>
+        <button>요청 취소</button>
+      </div>
+    </div>
+
+    <div class="MHHright" id="MHHchatWindow" style="display: none;">
+      대화창
+    </div>
+
+  </main>
+  <script>
+    // 버튼과 대화창 요소 가져오기
+    const openChatBtn = document.getElementById('MHHopenChatBtn');
+    const chatWindow = document.getElementById('MHHchatWindow');
+
+    // 클릭 시 표시 토글
+    openChatBtn.addEventListener('click', () => {
+      // display 상태 확인 후 보이기
+      if (chatWindow.style.display === 'none') {
+        chatWindow.style.display = 'block';
+      } else {
+        chatWindow.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+
+</html>

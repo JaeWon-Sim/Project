@@ -1,0 +1,16 @@
+package quiz.cafe.teacer;
+
+public class Compose extends Cafe{
+	
+	Compose(){
+		super("재원빌딩", "compose");
+		this.menumap.put("아아", 3000);
+		menumap.put("라때", 4000);
+	}
+	@Override
+	void make() {
+		System.out.println(this.menu+"다~");
+		serve();
+	}
+
+}

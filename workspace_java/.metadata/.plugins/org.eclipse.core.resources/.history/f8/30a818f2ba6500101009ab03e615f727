@@ -1,0 +1,26 @@
+package quiz.cafe;
+
+public class CafeExam {
+
+	public static void main(String[] args) {
+		Compose c = new Compose();
+		
+		//값 확인
+		System.out.println(c.cafe);
+		System.out.println(c.menu);
+		System.out.println(c.price);
+
+		
+		System.out.println();
+		Towsome t = new Towsome();		
+		//값 확인
+
+		System.out.println(t.cafe);
+		System.out.println(t.menu);
+		System.out.println(t.price);
+		
+		
+		
+	}
+
+}

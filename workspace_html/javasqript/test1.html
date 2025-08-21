@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // function plus (a, b){
+        //     console.log(typeof sum);
+        //     if(typeof a === 'number' && typeof b === 'number' ){
+        //         sum = a + b;
+        //         return sum;
+
+        //     }else{
+        //         console.log('숫자 넣으셈');
+                
+        //     }
+        // }
+        // let cc = plus(1, 3);
+        //     console.log(typeof a);    //2
+        //     t();//4
+        //     a=5;//3
+        // function t(){       //1
+        //     z=a;
+        //     console.log(z);
+        // }
+
+        // 메일 주소 앞 두자리를 제외한 id는 마스킹처리
+        // ex) todair@naver.com >> to****@naver.com
+
+        let showCnt = 2;
+        let mail = 'kion2313@naver.com';
+        //앞 두자리를 찾는 방법
+        let id = mail.substr(0,showCnt);
+        console.log(id);//앞 두자리
+        //'@'뒤에 나오는걸 찾는방법;
+        let count = mail.length - showCnt;
+        let idx = mail.indexOf('@');
+        for(let i=0; i<count; i++){
+            id += '*';
+        }
+        id += mail.substring(idx);
+        console.log(id);
+        
+        let domain = mail.substr(idx)
+
+
+
+        //인터넷 주소 중 2차 도메인 
+        // 즉 ex) comic.naver.com에서 
+        // naver출력!
+        
+                
+
+        
+        
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

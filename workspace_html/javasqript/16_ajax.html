@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        window.addEventListener('load', bind)
+        function bind(){
+            document.querySelector('#btn1')
+            .addEventListener('click', function(){
+
+                // ajax 객체 생성
+                const xhr = new XMLHttpRequest();
+
+                // 보낼 준비
+                // 방식 method, 주소
+                xhr.open('get', 'https://jsonplaceholder.typicode.com/users');
+                // 보내기
+                xhr.send();
+
+                xhr.onload = function(){
+                    console.log('오셧능가~');
+                    // xhr.responseText : 응답받은 내용이 담겨있음
+                    console.log(xhr.responseText);
+                    const data = JSON.parse(xhr.responseText);
+                    console.log(data);
+                    console.log(data[0]);
+                    console.log(data[0].username);
+                    console.log(data[0]['username']);
+                    console.log(data[0].address.geo.lat);
+                    
+                }
+
+            })
+        
+            document.querySelector('#btn2')
+            .addEventListener('click', function(){
+                const xhr = new XMLHttpRequest();
+                xhr.open('get', 'http://humanjobs.co.kr');
+                xhr.send();
+                xhr.onload = function(){
+                    console.log(xhr.responseText);
+                }
+            })
+
+            // document.querySelector('#btn3')
+            // .addEventListener('click', function(){
+            //     const serviceKey ='ffB41D%2FkKVWbkLs4ZqHhto%2FPIsIaIuid0OPZPrj%2B0B0SDgb06uMZiJAnvwo5gGaCj%2FKX%2FaVRI4Z%2FxnbS8n%2FLmw%3D%3D'
+            //     let url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst'
+            //     url += '?serviceKey='+ serviceKey
+            //     url += '&numOfRows=1000'
+            //     url += '&pageNo=1'
+            //     url += '&dataType=JSON'
+            //     url += '&base_date=20250714'
+            //     url += '&base_time=1400'
+            //     url += '&nx=63'
+            //     url += '&ny=110'
+
+
+            //     const xhr = new XMLHttpRequest();
+            //     xhr.open('get', url);
+            //     xhr.send();
+            //     xhr.onload = function(){
+            //         // console.log(xhr.responseText);
+            //         const data = JSON.parse(xhr.responseText);
+            //         console.log(data);
+                                          
+            //         const time_weather = data.response.body.items.item;
+            //         const t_w = time_weather.filter(item => item.fcstTime === '1500');
+            //         console.log(t_w);//3시 예보 출력
+
+            //         for(let i = 0; i<t_w.length; i++){
+            //             if(t_w[i].category === 'RN1'){
+            //                 const time = t_w[i].fcstTime;
+            //                 document.querySelector('#time').innerText=time;
+            //                 // console.log(time);//시간 맞게 나오는지 출력 확인!
+            //             }if(t_w[i].category === 'T1H'){
+            //                 const temp = t_w[i].fcstValue;
+            //                 document.querySelector('#temp').innerText=temp;
+            //                 // console.log(temp);//온도
+            //             }if(t_w[i].category === 'WSD'){
+            //                 const moisture = t_w[i].fcstValue;
+            //                 document.querySelector('#moisture').innerText=moisture;
+            //                 // console.log(nature); 습도
+            //             }if(t_w[i].category === 'RN1'){
+            //                 const rain = t_w[i].fcstValue;
+            //                 document.querySelector('#rain').innerText=rain;
+            //                 // console.log(rain); 강수량
+            //             }
+            //         }
+
+                                       
+            //     }
+            // })
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+                document.querySelector('#btn')
+                .addEventListener('click', function(){
+                    const search = document.querySelector('#input')
+                    console.log(search.value);//input에 값 나오나 확인
+
+                    const serviceKey ='ffB41D%2FkKVWbkLs4ZqHhto%2FPIsIaIuid0OPZPrj%2B0B0SDgb06uMZiJAnvwo5gGaCj%2FKX%2FaVRI4Z%2FxnbS8n%2FLmw%3D%3D'
+                    let url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst'
+                    url += '?serviceKey='+ serviceKey
+                    url += '&numOfRows=1000'
+                    url += '&pageNo=1'
+                    url += '&dataType=JSON'
+                    url += '&base_date=20250714'
+                    url += '&base_time=1400'
+                    url += '&nx=63'
+                    url += '&ny=110'
+
+
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('get', url);
+                    xhr.send();
+                    xhr.onload = function(){
+                        // console.log(xhr.responseText);
+                        const data = JSON.parse(xhr.responseText);
+                        // console.log(data);
+                        const time_weather = data.response.body.items.item;
+                        const t_w = time_weather.filter(item => item.fcstTime === search.value);
+                            // console.log(t_w);
+                        for(let i = 0; i<t_w.length; i++){
+                            if(t_w[i].category === 'RN1'){
+                                const time = t_w[i].fcstTime.slice(0,2);
+                                document.querySelector('#t_time').innerHTML
+                                += `<td id="time">${time}시</td>`;
+                                console.log(time);//시간 맞게 나오는지 출력 확인!
+                            }else if(t_w[i].category === 'T1H'){
+                                const temp = t_w[i].fcstValue;
+                                document.querySelector('#t_temp').innerHTML
+                                += `<td id="temp">${temp}도</td>`;
+                                console.log(temp);//온도
+                            }else if(t_w[i].category === 'REH'){
+                                const moisture = t_w[i].fcstValue;
+                                document.querySelector('#t_moisture').innerHTML
+                                += `<td id="temp">${moisture}%</td>`;
+                                console.log(moisture); //습도
+                            }else if(t_w[i].category === 'RN1'){
+                                const rain = t_w[i].fcstValue;
+                                document.querySelector('#t_rain').innerHTML
+                                += `<td id="temp">${rain}</td>`;
+                                console.log(rain); //강수량
+                            }
+                        }
+                        
+                    }
+
+                })
+                
+                
+                
+                document.querySelector('#btn4')
+                .addEventListener('click', function(){
+
+                    const url = 'https://jsonplaceholder.typicode.com/users'
+                    const option ={
+                        method: 'get'
+                    }
+
+                    fetch(url, option)
+                    .then(function(response){
+
+                        return response.json()
+                    
+                    }).then(function(data){
+
+                        console.log(data);
+
+                    }).catch(function(error){
+
+                        console.log(error);
+                    
+                    })
+
+                })
+            document.querySelector('#btn5')
+            .addEventListener('click', function(){
+                const serviceKey ='ffB41D%2FkKVWbkLs4ZqHhto%2FPIsIaIuid0OPZPrj%2B0B0SDgb06uMZiJAnvwo5gGaCj%2FKX%2FaVRI4Z%2FxnbS8n%2FLmw%3D%3D'
+                let url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst'
+                url += '?serviceKey='+ serviceKey
+                url += '&numOfRows=1000'
+                url += '&pageNo=1'
+                url += '&dataType=JSON'
+                url += '&base_date=20250716'
+                url += '&base_time=1400'
+                url += '&nx=63'
+                url += '&ny=110'
+
+                const option ={
+                        method: 'get'
+                    }
+
+                fetch(url, option).then(function(response){
+                    return response.json();
+                    const data = JSON.parse(response);
+                    console.log(data);
+                })
+                
+            })
+
+            $('#btn10').off('click').on('click', function(){
+                $.ajax({
+                    url : 'https://naver.com',
+                    type : 'get',
+                    success: function(data){
+                        //json일 경우 알아서 json으로 넘어옴
+                        console.log('성공');
+                        console.log(data);
+                    },
+                    error: function(data){
+                        // 실패했을때
+                        console.log('실패');
+                        console.log('ERROR',data);
+                    },
+                    complete: function(){
+                        console.log('무조건 실행');
+                    }
+                });
+            })
+
+
+            try{
+                console.log(1, '실행');
+                // throw new Error('에러');
+                console.log(2, '여전히 실행 중');
+            } catch(err) {
+                console.log(3, 'catch');
+                console.log(4, err);
+            } finally {
+                console.log(5, '무조건 실행');
+            }
+            console.log('여기요~');
+
+            $('#btn20').off('click').on('click', function(){
+                $.ajax({
+                    url : 'https://jsonplaceholder.typicode.com/users',
+                    type : 'get'
+                }).done(function(data){
+                    console.log(data);
+                    console.log('성공')
+                }).fail(function(err){
+                    console.log('실패');
+                    console.log('ERROR', data);
+                }).always(function(){
+                    console.log('무조건 실행')
+                })
+            })
+            
+            $('#btn22').on('click', function(){
+                const msg = $('#msg').val().replace(/\n/g, '%0a');
+                $.ajax({
+                    url : 'https://api.telegram.org/bot8070161927:AAGh2HwOr1tz_V4PpJRYEnqWsJNUaDNDc7Q/sendMessage?chat_id=7572410292&text='+msg,
+                    type : 'get'
+                })
+                $('#msg').val('');
+            })
+
+            $('#btn33').on('click', function(){
+                let msg=$('#msg2').val();
+                const key = 'AIzaSyCbOUPMl9FJ8gqIth0q6gcPvbwamxWuivw'
+                const url ='https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+key
+                const data = {
+                    contents: {
+                        role: 'user',
+                        parts:[{
+                            text: msg
+                        }]
+                    }
+                }
+
+                const xhr =  new XMLHttpRequest();
+                xhr.open('post', url);
+                xhr.setRequestHeader('Content-Type', 'application/json')
+                xhr.send(JSON.stringify(data))
+                xhr.onload = function(){
+                    console.log('왔다')
+                    console.log(xhr.responseText);
+                const response = JSON.parse(xhr.responseText);
+                const ans = response.candidates[0].content.parts[0].text
+                $('#gemini').html(ans.replace(/\n/g, '<br>'))
+                }
+            })
+
+
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+    <button type="button" id="btn1">ajax 실행</button>
+    <button type="button" id="btn2">humanjobs</button>
+    <button type="button" id="btn5">날씨</button>
+    <button type="button" id="btn4">fetch</button>
+    <button type="button" id="btn10">a</button>
+    <button type="button" id="btn20">b</button>
+    <hr>
+    <textarea id="msg"></textarea><br>
+    <button type="button" id="btn22">텔레그램 전송</button>
+    <hr>
+
+    <hr>
+    <br>
+    <textarea id="msg2"></textarea><br>
+    <button type="button" id="btn33">안녕잼민아</button>
+    <div id="gemini"></div>
+    <hr>
+
+    <table style="border:1px solid black">
+        <input type="text" id="input"><input type="button" id="btn" value="검색">
+        <tr id="t_time">
+            <td>시간</td>
+        </tr>
+        <tr id="t_temp">
+            <td>온도</td>
+        </tr>
+        <tr id="t_rain">
+            <td>강수량</td>
+        </tr>
+        <tr id="t_moisture">
+            <td>습도</td>
+        </tr>
+    </table>
+</body>
+</html>

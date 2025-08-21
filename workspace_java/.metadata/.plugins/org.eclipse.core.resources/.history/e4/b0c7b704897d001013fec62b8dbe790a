@@ -1,0 +1,51 @@
+package emp.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import emp.dto.EmpDTO;
+import emp.service.EmpService;
+
+@WebServlet("/list")
+public class EmpListController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		
+		System.out.println("/list doGet 실행");
+		
+		EmpService empService = new EmpService();
+		List<EmpDTO> list = empService.getAllEmp();
+		
+		//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>\\
+		//화면에 출력 ( 응답 정적 자원 만들기 )
+		PrintWriter po = response.getWriter();
+		po.println("<table header>");
+		po.println("<table border=1>");
+		po.println("	<tr>");
+		po.println("	<th>사원번호</th>");
+		po.println("	<th>사원이름</th>");
+		po.println("	<th>월급</th>");
+		po.println("	</tr>");
+		
+		for(EmpDTO dto : list) {
+			System.out.println(dto);
+			po.println("	<tr>");
+			po.println("		<td>"+dto.getEmpno()+"</td>");
+			po.println("		<td><a href=''>"+dto.getEname()+"</a></td>");
+			po.println("		<td>"+dto.getSal()+"</td>");
+			po.println("	</tr>");
+		}
+		po.println("</table>");
+	}
+
+}

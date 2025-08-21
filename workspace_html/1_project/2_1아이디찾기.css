@@ -1,0 +1,55 @@
+.FID {
+      font-family: 'Noto Sans KR', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #fff;
+      color: #333;
+    }
+    .FIDcontainer {
+      width: 300px;
+      text-align: center;
+    }
+    .FIDh1 {
+      color: #d59f77;
+      margin-bottom: 30px;
+    }
+    .FIDinput-box {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      padding: 8px;
+      text-align: left;
+    }
+    .FIDinput-box input {
+      border: none;
+      width: 100%;
+      outline: none;
+    }
+    .FIDbtn {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .FIDbtn-primary {
+      background: #f2d7c3;
+      color: #333;
+    }
+    .FIDbtn-secondary {
+      background: #eaeaea;
+      color: #333;
+    }
+    .FIDlinks {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    .FIDlinks a {
+      color: #666;
+      text-decoration: none;
+      margin: 0 5px;
+    }

@@ -1,0 +1,21 @@
+package quiz.cafe.teacer;
+
+import java.util.HashMap;
+
+public class Compose extends Cafe{
+	
+	Compose(){
+		super("재원빌딩", "compose");
+		
+		HashMap map = new HashMap();
+		
+		map.put("아아", 3000);
+		map.put("라때", 4000);
+	}
+	@Override
+	void make() {
+		System.out.println(this.menu+"다~");
+		serve();
+	}
+
+}

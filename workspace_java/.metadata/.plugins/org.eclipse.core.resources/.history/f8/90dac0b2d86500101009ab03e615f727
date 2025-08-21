@@ -1,0 +1,40 @@
+package quiz.cafe.teacer;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Cafe {
+	String building;
+	String name;
+	int empcnt;
+	HashMap menumap;
+	ArrayList list;
+	Cafe(String building, String name, int empcnt, HashMap menumap){
+		this.building = building;
+		this.name = name;
+		this.empcnt = empcnt;
+		this.menumap = menumap;
+	}
+	Cafe(String building, String name){
+		this(building, name, 0, null);
+	}
+	
+	int order(String menu, int cnt) {
+		System.out.println("주문내역");
+		System.out.println("menu : "+menu);
+		System.out.println("cnt : "+cnt);
+		
+		int money = -1;
+		if(this.menumap.get(menu) != null) {
+			money = (int)this.menumap.get(menu);
+		}
+		return money*cnt;
+	}
+	
+	
+	
+	
+	
+	
+	
+}

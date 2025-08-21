@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //한줄 주석
+        /*
+         범위 주석
+        */
+        console.log("Hello World");
+        
+        //변수 선언
+        var a = 10;
+        console.log('a : '+ a);
+        
+        //var를 쓰지 않아도 가능!
+        //전역 변수로 바뀐다! > 필드로 날아감!
+        b = 20;
+        console.log('b : '+ b);
+        
+        //let을 사용!
+        let c = 30;
+        console.log('c : '+ c);
+        
+        //const 사용!
+        //java final 개념!!
+        //const는 재선언 불가!
+        const d = 40;
+        console.log('d : '+ d);
+        //d = 50; const는 한번 밖에 값을 할당하지 못한다!
+        //자바스크립트는 인터프리터 개념이라
+        //console.log('d : '+ d); 위 코드가 작동하지 않는다!
+        //값이 할당되지 않은 변수는 사용 불가!
+        //cosole.log(e);
+        
+        //var는 새로 값을 할당 할 수 있다!
+        var a = 11;
+        console.log('a : ' + a);
+        
+        //let은 재선언이 불가능!
+        //let c = 40;
+        
+        //변수는 어떤 타입이든 들어갈 수 있다!
+        c = "c";
+        console.log('c : ' + c);
+
+        console.log(typeof c);
+        c = 5;
+        console.log(typeof c);
+
+        let f = 1;
+        let g = "1.3";
+
+        console.log(f==g);//값만 비교!
+        console.log(f===g);//타입까지 맞는지를 비교할때 === or !==을 쓴다!!
+
+        let h;
+        console.log(h);
+
+        console.log( 1.5 + 2 );
+        
+        console.log(g*2);//이건 연산 가능!
+        
+        console.log( Number(g)+2);
+        console.log( parseInt(6.3+2) );//int 값으로 바뀌어서 나옴!
+        console.log( parseInt(g)+4 );
+        /*
+        String a = "1";
+        int b = a;
+        b = Integer.parseInt(a)
+        */
+        
+        h = "이것";
+
+        console.log(h*2);//NaN 출현 NaN(not a number) 불가능!
+        
+        console.log( isNaN(h*3) );//NaN인가?
+
+        console.log(5/0);
+        console.log( isFinite(5/0) );//무한인가?
+
+        console.log("이전");
+        alert("김동현\n형");
+        console.log("이후");
+
+        const result = confirm("형 맞아?");//사용자에게 확인 받는 알림창!
+        console.log('result:',result);
+
+        const result1 = prompt("비번입력!");
+        console.log('result1:',result1);
+        
+        console.log('입력한글씨는'+result1);
+        console.log(`입력한글씨는 ${result1} 
+        입니덩`);//엔터도 나옴!
+        console.error("에러?");
+       
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

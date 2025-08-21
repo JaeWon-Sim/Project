@@ -1,0 +1,46 @@
+package todo.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import todo.DTO.TodoDTO;
+import todo.service.TodoService;
+
+@WebServlet("/modify")
+public class TodoModifyController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		TodoDTO tododto = new TodoDTO();
+		
+		String str_tno = request.getParameter("tno");
+		int tno = Integer.parseInt(str_tno);
+		
+		
+		TodoService todoService = new TodoService();
+		TodoDTO tododto2 = todoService.getTodo(tododto);
+		
+		PrintWriter out = response.getWriter();
+		out.println("<form method='post' action='modify'>");
+		out.println("tno : "+ tododto2.getTno()+"<br>");
+		out.println("title : <input type='text' value='"+tododto2.getTitle()+"'");
+		out.println("duedate : <input type='date' value='"+tododto2.getDuedate()+"'");
+		out.println("finished : <input type='number' value='"+tododto2.getFinished()+"'");
+		out.println("<input type='submit' value='수정하기'>");
+		out.println("<a href='todo'><button>목록으로</button></a>");
+		out.println("</form>");
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+}

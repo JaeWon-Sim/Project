@@ -1,0 +1,16 @@
+package sec03.exam02._abstract;
+
+public class AnimalExam {
+
+	public static void main(String[] args) {
+
+		Animal a = new Dog();
+		a.sound();
+		Dog d = (Dog)a;
+		testSound(Dog);
+	}
+	static void testSound(Animal animal) {
+		animal.sound();
+	}
+
+}

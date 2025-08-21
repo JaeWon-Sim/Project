@@ -1,0 +1,19 @@
+package sec03.exam02._abstract;
+
+public class AnimalExam {
+
+	public static void main(String[] args) {
+
+		Animal a = new Dog();
+		a.sound();
+		Dog d = (Dog)a;
+		System.out.println(d.kind);
+		testSound(d);
+		System.out.println(d.kind);
+	}
+	static void testSound(Animal animal) {
+		animal.sound();
+		animal.kind= "°³";
+	}
+
+}

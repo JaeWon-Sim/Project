@@ -1,0 +1,13 @@
+package sec03.exam02._abstract;
+
+public class abstract Animal {
+	
+	String kind;
+	
+	void breathe() {
+		System.out.println("후욱후욱~");
+	}
+	
+	abstract void sound();
+
+}

@@ -1,0 +1,14 @@
+package quiz.cafe;
+
+public class CafeExam {
+
+	public static void main(String[] args) {
+		
+		Compose c = new Compose();
+		
+		
+		
+		
+	}
+
+}

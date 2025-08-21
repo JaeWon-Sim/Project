@@ -1,0 +1,71 @@
+package sec01.exam01;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class OracleJDBCExam {
+
+	public static void main(String[] args) {
+
+		String url = "jdbc:oracle:thin:@125.181.132.133:51521:xe";
+		String user = "scott4_15";
+		String password = "tiger";
+		String driver = "oracle.jdbc.driver.OracleDriver";
+		
+		Connection conn = null;
+		PreparedStatement ps =null;
+		try {
+			
+			// Oracle 드라이버 로딩
+			// Class.forname : String을 이용해서 클래스 생성
+			Class.forName(driver);
+			
+			// DB 접속
+			conn = DriverManager.getConnection(url, user, password);
+			
+			// SQL 준비
+			String query = "select * from emp";
+			ps = conn.prepareStatement(query);
+			
+			// SQL 실행 및 결과 확보
+			ResultSet rs = ps.executeQuery();
+			
+			// 결과 활용
+			//rs.next : 다음줄이 있는가?
+			//next가 실행된 이후 rs 한 줄로 변경 됨
+			//cursor가 다음 줄로 이동된다
+			if(rs.next()) {
+				int empno = rs.getInt("empno");
+				System.out.println("첫번째 empno = " + empno);
+				
+				String ename = rs.getString("ename");
+				System.out.println("첫번째 ename = " + ename);
+			}
+			
+			
+//			conn.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(ps!= null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			if(conn!=null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+}

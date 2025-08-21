@@ -1,0 +1,8 @@
+package quiz.cafe;
+
+public class Towsome extends Cafe{
+
+	Towsome(){
+		super("towsome");
+	}
+}

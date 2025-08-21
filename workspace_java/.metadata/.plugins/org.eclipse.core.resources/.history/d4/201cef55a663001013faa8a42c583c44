@@ -1,0 +1,13 @@
+package quiz.cafe;
+
+public class Compose extends Cafe{
+
+	Compose (){
+		super();
+		super.cafe = "compose";
+		super.menu = "아이스아메리카노";
+		super.price = 3000;
+	}
+	
+	
+}

@@ -1,0 +1,157 @@
+    /* 주석*/
+        
+        /* 전체 선택자 */
+        *{
+            color:rgb(68, 75, 39);
+        }
+
+        /* tag 선택자 */
+        h2{
+            font-size:10%;
+            color:rgb(197, 96, 2);
+        }
+        /* id선택자 id이름 앞에 #을 붙여준다! */
+        #a{
+            color:black;
+        }
+        /* class 선택자 class 이름 앞에 .dmf 붙여준다*/
+        .c{
+            background-color:green;
+        }
+        .bigText{
+            font-size: 30px;
+        }
+        #div1{
+            background-color:rgb(255, 0, 128);
+            font-size:25px;
+            color : rgb(46, 10, 10);
+        }
+
+        /*a마우스 올렸을대 바뀌는 옵션*/
+        #div1:hover{
+            background-color:black;
+        }
+
+        /* 클릭했을때 바뀌는 옵션 */
+        #div1:active{
+            color:aliceblue;
+            font-size:100px;
+        }
+        /* 포커싱됬을때 바뀌는 옵션 */
+        .text1:focus{
+            background-color:yellow;
+        }
+        /*누군가의 첫번째 자식*/
+        li:first-child{
+            color:blue;
+        }
+        ul:first-child{
+            font-size:100px;
+        }
+        /*실제 등장하는 요소 중 첫번째*/
+        ul:first-of-type{
+            text-decoration: underline;
+        }
+        tr:nth-child(2n){
+            background-color:black;
+            color:rgb(250, 70, 196);
+        }
+        /*content에 적용할 css를 지정할 수 있다
+            rendering 요소*/
+        h3:after{
+            content:"AFTER";
+            font-size:10px;
+        }
+        h3:before{
+            content:"슈슈슉";
+            font-size:10px;
+        }
+        /* 다중 선택자 */
+        /* li{
+            border: 1px solid rgb(45, 120, 182);
+        }
+         h3{
+            border: 1px solid red;
+        } */
+         li,h3,#divl{
+            border: 1px solid red;
+        }
+
+
+        /* >:바로 아래 자식 요소만! */
+        /* 띄어쓰기는 전부다 바꿔준다! */
+        #ol > li {
+            color:red;
+        }
+         #ol li {
+            border: 1px solid black;
+        }
+        /*딱 붙여 쓰면 모든 선택자를 동시에 만족하는 요소 선택 가능
+            and 조건과 동일!!*/
+        ul.a.b:hover{
+            font-size:10px;
+            background-color : rgb(97, 86, 86);
+        }
+        /*속성이 모두 존재하는 요소*/
+        [href]{
+            color:rgb(14, 28, 228);
+        }
+        /* 속성과 값이 모두 일치하는 요소
+            #naver는 [id=naver]의 줄임말*/
+        a[id=naver]{
+        /* input#naver */
+            font-size:20px;
+        }
+        /*값으로 시작하는 속성과 속성 값의 요소*/
+        [href^=https]{
+            color:green;
+        }
+        /* ^= data-s속성의 k로 시작하는 요소 */
+        li[data-s2^=k]{
+            color : rgb(114, 114, 80);
+        }
+        /*$= 끝에가 k로 끝나는*/
+        li[data-s2$=k]{
+            color : rgb(114, 114, 80);
+        }
+
+        input[type=password]:focus {
+            background-color: red;
+        }
+        /*조건에 따른 부정 선택자 
+        input tag 중에서 .c3 클래스가 없는 모든 것들
+        input:not(.c3){
+            color:red;
+        }*/
+        /* 속성값 중에서 단어로 존재(공백으로 분리)하는 것을 찾아 줌 */
+        /* .c4=[class~="c4"] */
+        input[class~="c4"]{
+            color:green;
+        }
+        /*속성값에 c4가 포함되는 것을 선택
+            ex <input class="c4 c5 c41
+            ex) c41도 선택된다!*/
+        input[class*="c4"]{
+            color:green;
+        }
+
+        ::selection{
+            background-color : black;
+        }
+
+
+        input[type=checkbox]:checked{
+            width:0.1px;
+            height:0.1px;
+        }
+        input[type=checkbox]:checked + span{
+            font-size:1px;
+        }
+
+        #s1{
+            color:purple;
+        }
+        span{
+            color:black !important;
+        }
+        

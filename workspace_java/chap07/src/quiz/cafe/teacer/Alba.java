@@ -1,0 +1,29 @@
+package quiz.cafe.teacer;
+
+public class Alba {
+
+	Cafe cafe;
+	Alba(Cafe cafe){
+		this.cafe = cafe;
+	}
+	
+	void work(String menu, int cnt) {
+		
+		if(cafe instanceof Compose) {
+			System.out.println("어서오세요  입니다");
+		}
+		
+		int money = cafe.order(menu, cnt);
+		
+		if(money == -1) {
+			System.out.println("없는 메뉴임");
+		}else {
+			System.out.println(money+"원 입니다");
+		}
+	}
+	void pay(int money) {
+		System.out.println(cafe.pay(money) + "원 돌려드립니다");
+		cafe.make();
+	}
+	
+}

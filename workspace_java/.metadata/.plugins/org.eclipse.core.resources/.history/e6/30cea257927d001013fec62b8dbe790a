@@ -1,0 +1,44 @@
+package emp.controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/remove")
+public class EmpRemoveController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		//Pseudo coding 슈도 코딩
+		//말로 코딩
+		//1.삭제 클릭
+		
+		
+		//2.empno값 가져오기
+		
+		
+		//3.값 세팅하기
+		
+		
+		//4.db실행문
+		
+		
+		//5.전체목록 페이지로 이동
+		
+		
+		
+		String rEmpno = request.getParameter("empno");
+		
+	
+		
+		
+		
+	}
+
+}

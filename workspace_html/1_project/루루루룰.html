@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea class="a" placeholder="메시지를 입력하세요"></textarea>
+<button class="c">전송</button>
+<span class="b">호호이~</span>
+
+<script>
+  // 요소(Node) 를 변수에 저장
+  const textarea = document.querySelector('.a');
+  const span     = document.querySelector('.b');
+  const button   = document.querySelector('.c');
+
+  button.addEventListener('click', function() {
+    // 클릭할 때마다 textarea.value 를 읽어서
+    // span.textContent 에 할당
+    span.textContent = textarea.value;
+    // 콘솔에도 찍어볼 수 있고:
+    console.log('전송된 메시지:', textarea.value);
+  });
+</script>
+
+        
+    </script>
+</body>
+</html>

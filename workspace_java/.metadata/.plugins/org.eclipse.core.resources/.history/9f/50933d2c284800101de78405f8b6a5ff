@@ -1,0 +1,23 @@
+package sec05.exam02_static;
+
+public class CalcExam {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println(Calc.pi);//new가 안됬는데 출력 가능!
+		
+		
+		Calc c = new Calc();
+			c.color = "빨강";
+		String a = c.color;
+		System.out.println(a);
+		c.pi=3.141592;
+		System.out.println(c.pi);
+		Calc c1 = new Calc();
+		c1.color = "노랑";
+		System.out.println(c1.pi);
+		
+	}
+
+}

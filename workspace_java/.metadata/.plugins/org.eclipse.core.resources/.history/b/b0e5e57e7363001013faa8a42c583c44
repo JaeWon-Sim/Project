@@ -1,0 +1,11 @@
+package sec02.exam01;
+
+public class AnimalExam {
+	public static void main(String[] args) {
+
+		Animal a = new Animal();
+		a.think();
+		a.eat();
+	
+	}
+}

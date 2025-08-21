@@ -1,0 +1,9 @@
+package sec01.exam03.override;
+
+public class ComputerExam {
+
+	public static void main(String[] args) {
+
+	}
+
+}

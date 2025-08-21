@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <!--메뉴가 여러개일 때 선택한 메뉴'만' 특이하게 보이게-->
+    <div id="parent">
+        <div id="cc"><input type="checkbox" class="child" value="mail">메일</div>
+        <div id="cc"><input type="checkbox" class="child" value="cafe">카페</div>
+        <div id="cc"><input type="checkbox" class="child" value="blog">블로그</div>
+        <div id="cc"><input type="checkbox" class="child" value="store">스토어</div>
+        <div id="cc"><input type="checkbox" class="child" value="news">뉴스</div>
+    </div>
+    
+
+    <script>
+        // const checkbox = document.querySelectorAll('#parent div input');
+        // const cc = document.querySelector('#cc');
+        // console.log(checkbox.length);
+        // for(let i = 0; i < checkbox.length; i++){
+            
+        //     checkbox[i].addEventListener('change',function(){
+        //         for(let j=0; )
+        //         if(checkbox[i].checked){
+        //             cc.style.fontSize = '30px';
+        //         }else{
+        //             cc.style.fontSize = '16px';
+        //         }
+        //     })
+        // }
+            const checkboxes = document.querySelectorAll('.child');
+
+            for (let i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].addEventListener('change', function() {
+                    for (let j = 0; j < checkboxes.length; j++) {
+                        if (checkboxes[j].checked) {
+                            checkboxes[j].parentNode.style.fontSize = '30px';
+                        } else {
+                            checkboxes[j].parentNode.style.fontSize = '16px';
+                        }
+                    }
+                });
+            }
+
+        
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+package sec03.exam01;
+
+public class PhoneExam {
+
+	public static void main(String[] args) {
+
+//		Phone phone = new Phone(); abstract class는 new 할 수 없다!
+		
+		SmartPhone sp = new SmartPhone();
+		
+		Phone phone = /* 생략가능 (Phone) */sp;
+		
+		sp.turnOn();
+		
+	}
+
+}

@@ -1,0 +1,10 @@
+package quiz.cafe.teacer;
+
+public class Compose extends Cafe{
+	
+	Compose(){
+		super("재원빌딩", "compose");
+		menuMap.put("아아", 3000);
+	}
+
+}

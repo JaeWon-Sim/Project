@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        text(기본값) : <input type="text"><br>
+        text(value) : <input type="text" value = "값"><br>
+        <!--value 초기값!-->
+        text(placeholder) : <input type="text" placeholder = "placeholder"><br>
+        <!--입력한 글씨가 없을 때 표시되는 글씨-->
+        text(readonly) : <input type="text" value = "값" readonly="readonly"><br>
+        <!--읽기 전용-->
+        text(disabled) : <input type="text" value = "값" disabled="disabled"><br><br>
+        <!--비활성화-->
+        password : <input type="password" name="pw" placeholder = "비밀번호를 입력해주세요"><br>
+        <br>
+        <!--글씨 가림-->
+        
+        <!--한개만 선택 가능-->
+        radio : <input type="radio" name="gender" checked = "checked" value="male">남자
+                <input type="radio" name="gender" value="female">여자
+                <input type="radio" name="gender" value="unhuman">비공개
+                <!--name이 같은 것 끼리 그룹화!-->
+                <!--서버로 value만 전달된다 ex) 서버로 남자가 전달X male이 전달됨!-->
+                <!-- checked 속성으로 미리 선택 가능!-->
+        <br>
+        <input type="radio" name="meet" checked = "checked">참석
+        <input type="radio" name="meet">미참석
+        
+        <br>
+        <!--소속된 폼의 폼 요소를 서버로 제출하는 기능!-->
+        submit : <input type="submit" value="전송">
+        <br>
+        
+        <!--여러개 선택 가능-->
+        <!-- checked 속성으로 미리 선택 가능!-->
+        checkbox : 
+        <input type = "checkbox" value="1" checked = "checked" >생크림
+        <input type = "checkbox" value="2" name="토핑">초코칩
+        <input type = "checkbox" value="3">시럽
+        <input type = "checkbox" value="4">샷추가
+         <input type = "checkbox" value="5" id="peal">
+         
+        <br>
+
+        file:
+        <!--내 기기의 파일을 선택-->
+        <input type = "file">
+        <br>
+        reset :
+        <!--소속된 폼요소를 초기화--> 
+        <input type="reset">
+        <br>
+        input button : 
+        <!--버튼 모양을 표시한다-->
+        <!--value 속성에 버튼 명을 적는다-->
+        <input type = "button" value="버튼">
+        <br>
+        button :
+        <!--버튼 tag --> 
+        <button type = "button">눌러</button>
+        <br>
+       <hr>
+       <br>
+       hidden : <input type ="hidden" name="secret" value="123">
+        <br>
+        <hr>
+        <br>
+
+        date : <input type="date">
+        <br>
+        color : <input type="color"><br>
+        number : <input type="number"><br>
+        range : <input type="range" ><br>
+    <fieldset>
+        <legend>제목</legend>
+        글씨들
+    </fieldset>
+    required, autocomplete : <input type="text"required="required"autocomplete="off" >
+    <br>
+    <textarea rows = "10"
+              cols = "100">
+        1줄
+     2줄
+            3줄
+    </textarea>
+<br>
+<br>
+    <select name="lunch" size="5" multiple="multiple">
+        <option value="1" selected = "selected">A</option>
+        <option value="2">B</option>
+        <option value="3">C</option>
+        <option value="4">D</option>
+        <option value="5">E</option>
+        <option value="5">E</option>
+        <option value="5">E</option>
+        <option value="5">E</option>
+        <option value="5">E</option>
+        <option value="5">E</option>
+        <option value="5">E</option>
+        <option value="5">E</option>
+        <option value="5">E</option>
+        <option value="5">E</option>
+        <option value="5">E</option>
+    </select>
+<br>
+<br>
+
+    </form>
+    
+    <!--
+        method의 종류 : get, post
+        method's default is get
+        action : 전송할 주소
+        action의 디폴트값은 지금 내 주소 
+    -->
+    <!-- <form method="get" action="https://search.naver.com/search.naver"> -->
+    <form method="get" action="https://search.naver.com/search.naver">
+        <input type="text" name="query">
+        <input type="submit" value="네이버 검색">
+    </form>
+    <form method="get" action="https://www.google.com/search">
+        <input type="text" name="query">
+        <input type="submit" value="구글 검색">
+    </form>
+    <form method="get" >
+        <input type="text" name="query">
+        <input type="submit" value="get 연습">
+    </form>
+    <form method="post" >
+        <input type="text" name="query">
+        <input type="submit" value="post 연">
+    </form>
+    
+    
+</body>
+</html>

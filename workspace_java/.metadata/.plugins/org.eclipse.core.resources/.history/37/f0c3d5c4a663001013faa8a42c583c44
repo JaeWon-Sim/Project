@@ -1,0 +1,15 @@
+package quiz.cafe;
+
+public class Towsome extends Cafe{
+
+	Towsome() {
+		
+	}
+	@Override
+	void set () {
+		this.cafe = "Towsome";
+		this.menu = "아이스아메리카노";
+		this.price = 4500;
+		System.out.println("어서오세요~"+this.cafe+"입니다");
+	}
+}

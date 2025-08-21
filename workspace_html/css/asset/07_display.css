@@ -1,0 +1,67 @@
+#div{
+    border:1px solid black;
+}
+
+/* 블럭의 기본 너비 width:100% 즉, 부모만큼의 최대 너비를 가진다
+   블럭의 기본 높이 컨텐츠의 높이
+   새로운 줄에 표시되고 모든 너비를 차지하므로 다른것은 같은 줄에 올 수 없다 
+   너비를 새로 지정했을때 margin:0 auto; 로 중앙에 정렬 가능!*/
+.block{
+    border:1px solid black;
+    width:100px;
+    height:50px;
+    text-align:center;
+    margin:0 auto;
+}
+.inline{
+    border: 1px solid black;
+    /* inline 요소에 높이와 너비를 줄 수 없다. */
+    width:200px;
+    height:100px;
+    /* inline 요소에 마진은 좌우만 가능하다! */
+    margin:30px;
+    /* inline 요소에 패딩은 좌우만 가능!, border는 밀어짐 */
+    padding:30px;
+    /* display:block; */
+}
+.bg_pk{
+    background-color:rgb(255, 72, 200);
+}
+.parent{
+    border: 10px dotted black;
+    /* width : 400px;  */
+    /* 웹 반응형 */
+    width:400px;
+    font-size:0;
+
+    /* width:100%; */
+}
+.parent > div {
+    border:3px solid rgb(255, 72, 200);
+    box-sizing:border-box;
+    width:200px;
+    height:50px;
+
+    display:inline-block;
+
+    /* inline, inline-block만 적용 됨 */
+    vertical-align:top;
+    font-size:16px;
+}
+.hide{
+    /* none */
+    display:none;
+}
+.table{
+    display: table;
+}
+.table .td{
+    border :1px solid black;
+    display:table-cell;
+    height:100px;
+    width:200px;
+
+    vertical-align: middle;
+
+    text-align:center;
+}

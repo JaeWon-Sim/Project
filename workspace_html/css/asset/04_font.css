@@ -1,0 +1,119 @@
+@font-face {
+    font-family: 'CallifontSamulnori-Medium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2505@1.0/CallifontSamulnori-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#a{
+    color:green;
+    /* text-decoration:line-through; */
+    text-decoration:underline;
+    font-family:'CallifontSamulnori-Medium', 'Arial';
+}
+
+#a1{
+    text-decoration:none;
+}
+
+input[type=checkbox]:checked +span{
+    text-decoration:line-through;
+    color:gray;
+    
+}
+
+.a2{/* 기본 사이즈 16px */
+    font-family:'CallifontSamulnori-Medium', 'Arial';
+    /* font-size:100px; */
+    /* font-size:small; */
+    /* font-size:300%; */
+    font-size:3em;
+}
+.a3{/* italic 기울어진 글씨! */
+    font-style:italic;
+}
+
+em{
+    font-style:normal;
+}
+
+.fw-100{
+    font-weight:100;
+}
+
+.fw-400{/* font-weight의 기본값은 400!! */
+    font-weight:400;
+}
+
+.fw-900{
+    font-weight:900;
+}
+
+.fw-2200{
+    /* 100~900까지 밖에 없어서 기본값으로 변경된다! */
+    font-weight:2200;
+}
+
+.fw-bord{
+    font-weight:bold;
+}
+
+.a4{
+     font-weight:bold;
+     font-size: 2em;
+}
+
+.a5{
+    text-align: right;
+    border:1px solid black;
+}
+
+.a6{
+    text-align: center;
+}
+
+.a7{
+    text-align:left;
+}
+
+.a8{
+    text-align:justify;
+}
+
+.a9{/* 글자사이 간격을 조절할때 쓴다! */
+    /* letter-spacing:1em; */
+    letter-spacing:-1em;
+}
+
+.a10{/* 줄 간격을 조절할때 쓴다! */
+    line-height: 1px;
+}
+
+.a11{/* 세로방향 중앙 정렬 */
+    border:1px solid black;
+    height:100px;
+    line-height:100px;
+
+    text-align:center;
+}
+
+.a12{/* 아무리 길어도 한줄로 만들어줌 */
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis; /* 뒤에가 길면 ...으로 바꿔줌 */
+
+    border:1px solid black;
+}
+
+.a13{
+    border:1px solid black;
+    width:200px;
+}
+
+.a14{/* 단어가 길더라도 튀어나가지 않게 해준다(중간에 알아서 엔터 쳐줌)! */
+    word-wrap:break-word;
+}
+
+.a15{
+    word-break:break-all;
+}

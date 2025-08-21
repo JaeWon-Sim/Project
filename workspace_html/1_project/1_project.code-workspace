@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../css"
+		},
+		{
+			"path": "../html"
+		},
+		{
+			"path": "../javasqript"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "1_project"
+	}
+}

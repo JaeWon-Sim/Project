@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body{
+            background-color: black;
+            color:white;
+        }
+        .p{
+            border:1px solid rgb(89, 189, 110);
+            height:87px;
+            width:100px;
+            margin: 30px;
+        }
+        /* 그래피커 사진이나 글자를 상자 크기에 따라 잘라준다 */
+        .hidden{
+            overflow: hidden;
+        }
+        
+        .scroll{
+            overflow: scroll;
+        }
+
+        .auto{
+            overflow: auto;
+        }
+
+        .parent{
+            border:1px solid rgb(247, 247, 247);
+            width:300px;
+            white-space: nowrap; /* 한줄로 만들기!!! */
+        }
+
+        .parent div{
+            border:1px solid green;
+            display:inline-block;
+            width:100px;
+            margin:5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div title="히든" class="p hidden">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe, velit sit officiis laudantium consequatur rerum quis iure vel at quo esse id repellendus, sapiente quae explicabo provident, magni dolorem quia.
+    </div>
+    
+    <div title="스크롤 생성" class="p scroll">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe, velit sit officiis laudantium consequatur rerum quis iure vel at quo esse id repellendus, sapiente quae explicabo provident, magni dolorem quia.
+    </div>
+    
+    <div title="글씨 길이에 따라 다름" class="p scroll">
+        Lorem ipsum 
+    </div>
+
+    <div class="parent auto">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+    
+</body>
+</html>

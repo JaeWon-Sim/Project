@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>주문자 정보
+    <div>
+        <input type="text" id="id"><br>
+        <input type="text" id="adress"><br>
+        <input type="text" id="ph">
+    </div>
+    </div>
+    <input type="button" id="button" value="same">
+ 
+    <div>배송지 정보
+    <div>
+        <input type="text" id="id1"><br>
+        <input type="text" id="adress1"><br>
+        <input type="text" id="ph1">
+    </div>
+    </div>
+    <script>
+        const id = document.querySelector('#id');
+        const adress = document.querySelector('#adress');
+        const ph = document.querySelector('#ph');
+        const button =  document.querySelector('#button');
+        const cid = document.querySelector('#id1')
+        const cadress = document.querySelector('#adress1')
+        const cph = document.querySelector('#ph1')
+        button.addEventListener('click', function(){
+            if(id.value!==''&&adress.value!==''&&ph.value!==''){
+            // console.log(id.value);      //출력물확인
+            // console.log(adress.value);  
+            // console.log(ph.value);      
+            cid.value=id.value;         //값 집어넣기
+            cadress.value=adress.value; 
+            // console.log('복사본 확인 : ',cadress.value);
+            cph.value=ph.value;
+            }else {alert('빈칸없이 작성해주세요!')
+
+            }
+            
+        })
+        
+    </script>
+</body>
+</html>

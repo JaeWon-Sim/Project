@@ -1,0 +1,56 @@
+.FPW {
+      font-family: 'Noto Sans KR', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #fff;
+      color: #333;
+    }
+    .FPWcontainer {
+      width: 300px;
+      text-align: center;
+    }
+    .FPWh1 {
+      color: #d59f77; /* 로그인 페이지와 동일한 포인트 컬러 */
+      margin-bottom: 30px;
+    }
+    .FPWinput-box {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    .FPWinput-box input {
+      border: none;
+      width: 100%;
+      outline: none;
+    }
+    .FPWbtn {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .FPWbtn-primary {
+      background: #f2d7c3; /* 로그인 페이지의 버튼 색상 */
+      color: #333;
+    }
+    .FPWbtn-secondary {
+      background: #eaeaea;
+      color: #333;
+    }
+    .FPWlinks {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    .FPWlinks a {
+      color: #666;
+      text-decoration: none;
+      margin: 0 5px;
+    }

@@ -1,0 +1,9 @@
+package quiz.class1;
+
+public class JaewonController extends Student{
+	
+	JaewonController(){
+		super("Àç¿ø");
+	}
+
+}

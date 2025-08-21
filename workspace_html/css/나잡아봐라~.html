@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .ad-board {
+      width: 400px;
+      height: 100px;
+      background: #222;
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 5px solid #f0c000;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .ad-texts {
+      position: absolute;
+      top: 0;
+      animation: slide 20s infinite;
+    }
+
+    .ad-texts div {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes slide {
+      0% { transform: translateY(0%); }
+      20% { transform: translateY(0%); }
+
+      25% { transform: translateY(-100%); }
+      45% { transform: translateY(-100%); }
+
+      50% { transform: translateY(-200%); }
+      70% { transform: translateY(-200%); }
+
+      75% { transform: translateY(-300%); }
+      95% { transform: translateY(-300%); }
+
+      100% { transform: translateY(0%); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ad-board">
+    <div class="ad-texts">
+      <div>🔥 여름 세일 시작!</div>
+      <div>📦 무료 배송 혜택</div>
+      <div>💳 카드 무이자 이벤트</div>
+      <div>🎁 사은품 증정 중!</div>
+    </div>
+  </div>
+
+</body>
+</html>

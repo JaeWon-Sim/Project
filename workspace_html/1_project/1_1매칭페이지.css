@@ -1,0 +1,117 @@
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: sans-serif;
+    }
+
+    /* 헤더 */
+    .support-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 30px;
+      background: #fff4e8;
+      align-items: center;
+    }
+
+    .nav a {
+      margin-right: 20px;
+      text-decoration: none;
+      color: black;
+    }
+
+    .logout {
+      background: none;
+      border: 1px solid black;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    /* 본문 2열 */
+    .container {
+      display: flex;
+      height: calc(100vh - 70px);
+    }
+
+    .column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 40px;
+      overflow: hidden;
+      z-index: 0;
+      transition: background-color 0.5s ease; /* 부드러운 배경색 전환 */
+    }
+
+    .column:hover {
+      background-color: #b0ce2c;
+    }
+
+    .column:not(:last-child) {
+      border-right: 1px solid #ccc;
+    }
+
+    .text {
+      margin-bottom: 20px;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* 버튼 */
+    .mbutton {
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+      padding: 0.7em 2em;
+      border: 3px solid #000000;
+      border-radius: 2px;
+      position: relative;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+      color: #000000;
+      text-decoration: none;
+      z-index: 1;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(20px) scale(1); /* 초기 위치 + scale 기본값 */
+      transition:
+        opacity 0.4s ease,
+        transform 0.4s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+    }
+
+    .column:hover .mbutton {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0) scale(1); /* hover 시 올라옴 */
+    }
+
+    .mbutton:hover {
+      color: rgb(0, 0, 0);
+      background-color: #fbecdc; /* 부드러운 색상 전환 */
+    }
+
+    .column:hover .mbutton:active {
+      transform: translateY(0) scale(0.8);
+    }
+
+    /* 반응형 처리 */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .column {
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+      }
+    }

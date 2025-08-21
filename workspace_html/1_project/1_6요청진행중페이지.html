@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>요청 진행중</title>
+    <link rel="stylesheet" href="1_6요청진행중페이지.css">
+</head>
+<body class="INGB">
+    <main class="INGM">
+        <!-- 좌측 광고 -->
+        <a href="#">
+            <div class="INGleft" title="협력업체 광고">
+                협력업체 광고
+            </div>
+        </a>
+
+        <!-- 중앙 타이머 페이지 -->
+        <div class="INGcenter">
+            <h1>한끼온+</h1>
+            <div class="INGstatus">
+                <span id="INGstatic">요청 진행중</span><span id="INGdots"></span>
+            </div>
+
+            <div class="INGicon-box">
+                <img src=
+                "https://media.discordapp.net/attachments/1397101424705405031/1400634538920771605/image.png?ex=688d5a10&is=688c0890&hm=691fda443f9c2a600779af81e2a91bb374c07e964f9957e7e88e3b0f8c5ffb39&=&format=webp&quality=lossless&width=929&height=808"
+                    alt="봉사자 아이콘" />
+            </div>
+
+            <p class="INGvolunteer">봉사자: <span class="INGname">김동현</span></p>
+            <h2>현재 경과 시간</h2>
+
+            <div class="INGtimer" id="INGtimer">59분 00초</div>
+
+            <div class="INGbuttons">
+                <button id="INGcompleteBtn">요청 완료</button>
+                <button id="INGcancelBtn">요청 취소</button>
+                <button id="INGreportBtn">신고 하기</button>
+            </div>
+        </div>
+
+        <!-- 우측 빈 박스 -->
+        <div class="INGright" style="display: none;"></div>
+    </main>
+
+    <script>
+        let totalSeconds = 59 * 60;
+        const timerEl = document.getElementById('INGtimer');
+
+        function updateTimer() {
+            const h = Math.floor(totalSeconds / 3600);
+            const m = Math.floor((totalSeconds % 3600) / 60);
+            const s = totalSeconds % 60;
+            const mm = String(m).padStart(2, '0');
+            const ss = String(s).padStart(2, '0');
+            timerEl.textContent = h > 0
+                ? `${h}시간 ${mm}분 ${ss}초`
+                : `${mm}분 ${ss}초`;
+        }
+        updateTimer();
+        setInterval(() => {
+            totalSeconds++;
+            updateTimer();
+        }, 1000);
+
+        // ===== 요청 진행중... 점 애니 =====
+        const dots = ['', '.', '..', '...'];
+        let dotIndex = 0;
+        const dotEl = document.getElementById('INGdots');
+        setInterval(() => {
+            dotEl.textContent = dots[dotIndex];
+            dotIndex = (dotIndex + 1) % dots.length;
+        }, 500);
+    </script>
+</body>
+
+</html>
